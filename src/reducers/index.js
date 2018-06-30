@@ -1,5 +1,12 @@
 import { combineReducers } from 'redux';
+import feedbackReducer from './feedbackReducer';
+import gameReducer from './gameReducer';
+import scoreReducer from './scoreReducer';
+import settingsReducer from './settingsReducer';
 
 export default combineReducers({
-    responses: (state = {}, action) => { return state }
+    feedback: feedbackReducer,
+    game: gameReducer,
+    score: scoreReducer,
+    settings: settingsReducer
 })

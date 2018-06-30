@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import GameBoard from './GameBoard';
 
 class Game extends Component {
@@ -7,4 +8,4 @@ class Game extends Component {
     }
 }
 
-export default Game;
+export default connect()(Game)
