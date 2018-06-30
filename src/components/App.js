@@ -4,7 +4,7 @@ import Menu from './Menu';
 import Game from './Game';
 import Results from './Results';
 import Settings from './Settings';
-
+import 'materialize-css/dist/css/materialize.min.css';
 
 export default () => {
   return <BrowserRouter>
