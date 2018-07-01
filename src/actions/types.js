@@ -5,7 +5,6 @@ export const GAME_CANCEL = 'GAME_CANCEL';
 export const ROUND_START = 'ROUND_START';
 export const ROUND_END = 'ROUND_END';
 
-export const SETTINGS_CHANGE = 'CHANGE_SETTINGS';
-export const SETTINGS_INITIALIZE = 'SETTINGS_INITALIZE';
+export const SETTINGS_CHANGE = 'SETTINGS_CHANGE';
 
 export const USER_ANSWERED = 'USER_ANSWERED';

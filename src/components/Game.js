@@ -8,4 +8,8 @@ class Game extends Component {
     }
 }
 
-export default connect()(Game)
+function mapStateToProps(state) {
+    return { state: state.settings }
+}
+
+export default connect(mapStateToProps)(Game)

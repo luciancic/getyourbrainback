@@ -1,4 +1,4 @@
-import { SETTINGS_CHANGE, SETTINGS_INITIALIZE } from '../actions/types';
+import { SETTINGS_CHANGE } from '../actions/types';
 
 const defaultSettings = {
     n: 2,
@@ -7,13 +7,7 @@ const defaultSettings = {
 };
 
 export default (state = defaultSettings, action) => {
-    switch (action.type) {
-        case SETTINGS_CHANGE: {
-            break
-        }    
-        case SETTINGS_INITIALIZE: {
-            break
-        }
-        default: return state;
-    }
+    if (action.type === SETTINGS_CHANGE) {
+        return Object.assign({}, state, action.payload);
+    } else return state;
 }
