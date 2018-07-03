@@ -1,6 +1,7 @@
 import { SETTINGS_CHANGE } from './types';
 
-let storedSettings = window.localStorage.getItem('settings');
+let storedSettings = JSON.parse(window.localStorage.getItem('settings'));
+console.log('Stored settings', storedSettings)
 
 export const initializeSettings = () => {
     if (storedSettings) {
@@ -12,9 +13,10 @@ export const initializeSettings = () => {
 }
 
 export const changeSettings = (settings) => {
+    console.log('Running change settings action')
     storedSettings = storedSettings || {};
     const newSettings = Object.assign(storedSettings, settings);
-    window.localStorage.setItem('settings', newSettings);
+    window.localStorage.setItem('settings', JSON.stringify(newSettings));
 
     return {
         type: SETTINGS_CHANGE,

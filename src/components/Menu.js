@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import * as actions from '../actions/settingsActions';
 
 class Menu extends Component {
-    componentDidMount() {
-        this.props.initializeSettings();
-    }
-
     render() {
         const style = { style: { marginBottom: '20px' }};
         return <div id='menu' className='center'>
@@ -19,8 +13,4 @@ class Menu extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return { state: state.settings }
-}
-
-export default connect(mapStateToProps, actions)(Menu);
+export default Menu;
