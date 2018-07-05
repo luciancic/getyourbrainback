@@ -9,7 +9,7 @@ class Game extends Component {
     componentDidMount() {
         const { settings, endGame } = this.props;
 
-        this.playRound();
+        if (!this.props.game.ended) this.playRound();
         this.interval = setInterval(() => {
             if (this.props.game.currentRound === settings.maxRounds + settings.n) {
                 return endGame();
