@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import GameBoard from './GameBoard';
+import GameBoard from './game/GameBoard';
+import IndicatorBar from './game/IndicatorBar';
 import { startGame, endGame, cancelGame } from '../actions/gameActions';
 import { startRound, endRound } from '../actions/roundActions';
 
@@ -36,26 +37,16 @@ class Game extends Component {
         if (!game.ended) { cancelGame() }
     }
     
-    renderMaxRounds() {
-        const { n, maxRounds } = this.props.settings;
-        const { currentRound } = this.props.game;
-        const remainingRounds = maxRounds - currentRound + n + 1;
-
-        return remainingRounds > maxRounds ? 
-            <span>{maxRounds}<span className="green-text"> + {remainingRounds - maxRounds}</span></span> 
-            : remainingRounds;      
-    }
-
     render() {
-        const { n } = this.props.settings;
-        const { ended, positions, roundActive } = this.props.game;
+        const { n, maxRounds } = this.props.settings;
+        const { ended, positions, roundActive, currentRound } = this.props.game;
+        const remainingRounds = maxRounds - currentRound + n + 1;
         
         return <div className="container">
-            <div style={{ display: 'block', marginTop: '15px' }}>
-                <span className='left' style={{ paddingLeft: '15px'}}>Remaining rounds: { this.renderMaxRounds() }</span>
-                <span className='right' style={{ paddingRight: '15px'}}>N: {n}</span>
-            </div>
+            <IndicatorBar maxRounds={maxRounds} remainingRounds={remainingRounds} n={n} />
             <GameBoard active={roundActive} currentPosition={positions[0]}/>
+            <button className='btn'>Match Position</button>
+            <button className='btn'>Match Letter</button>
             { ended ? <Redirect to="/" /> : null }
         </div>
     }
