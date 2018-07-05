@@ -1,22 +1,18 @@
 import React from 'react';
+import './GameBoard.css';
 
 function renderPositionBoard() {
-    const style = { style: {
-        width: '40px',
-        height: '40px',
-        borderRadius: '100%',
-        backgroundColor: 'blue'
-    }};
     const arr = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
-    return arr.map((i) => {
-        return <div id={`position-${i}`} {...style} key={i} />
-    })
+    return <div className="row teal lighten-5 position-board" >{arr.map((i) => {
+        return <div id={`position-${i}`} className="position-circle green lighten-4" key={i} />
+    })}
+    </div>
 }
 
 const GameBoard = () => (
-    <div className='container'>
-        <span className='left'>Remaining rounds: 2</span>
-        <span className='right'>N-back: 2</span>
+    <div>
+        
+        <br/>
         {renderPositionBoard()}
         <button className='btn'>Match Position</button>
         <button className='btn'>Match Letter</button>

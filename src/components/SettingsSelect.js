@@ -7,23 +7,15 @@ class SettingsSelect extends Component {
     constructor(props) {
         super(props);
         this.handleSettingChange = this.handleSettingChange.bind(this);
-        console.log('Constructing')
     }
     
     componentDidMount() {
         const elems = document.querySelectorAll('select');
         this.selectElemsInstances = M.FormSelect.init(elems, {});
-        console.log('Post-mount')
     }
 
     handleSettingChange(e) {
         this.props.changeSettings({ [e.target.name]: Number(e.target.value) });
-    }
-
-    shouldComponentUpdate(nextProps) {
-        console.log('Checking')
-        console.log('nextProps', nextProps)
-        return true
     }
 
     renderOptions(name, options) {
@@ -39,8 +31,6 @@ class SettingsSelect extends Component {
 
     render() {
         let { name, options, settings } = this.props;
-        
-        console.log('Rendering, settings:', options)
         
         const selected = settings[name];
         return <div  className='input-field'>
