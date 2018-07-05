@@ -4,12 +4,9 @@ export const startGame = () => ({
     type: GAME_START
 })
 
-export const startRound = () => ({
+export const startRound = (position, letter) => ({
     type: ROUND_START,
-    payload: {
-        position: 3,
-        letter: 5
-    }
+    payload: { position, letter }
 });
 
 export const endGame = () => ({
