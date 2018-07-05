@@ -7,7 +7,6 @@ import { startRound, endRound } from '../actions/roundActions';
 
 class Game extends Component {
     componentDidMount() {
-        // Do not destructure game because its values will not stay up to date in the interval
         const { settings, endGame } = this.props;
 
         this.playRound();
@@ -37,15 +36,24 @@ class Game extends Component {
         if (!game.ended) { cancelGame() }
     }
     
-    render() {
+    renderMaxRounds() {
         const { n, maxRounds } = this.props.settings;
-        const { currentRound, ended, positions, roundActive } = this.props.game;
+        const { currentRound } = this.props.game;
         const remainingRounds = maxRounds - currentRound + n + 1;
 
+        return remainingRounds > maxRounds ? 
+            <span>{maxRounds}<span className="green-text"> + {remainingRounds - maxRounds}</span></span> 
+            : remainingRounds;      
+    }
+
+    render() {
+        const { n } = this.props.settings;
+        const { ended, positions, roundActive } = this.props.game;
+        
         return <div className="container">
             <div style={{ display: 'block', marginTop: '15px' }}>
-                <span className='left' style={{ paddingLeft: '15px'}}>Remaining rounds: { remainingRounds }</span>
-                <span className='right' style={{ paddingRight: '15px'}}>N-back: {n}</span>
+                <span className='left' style={{ paddingLeft: '15px'}}>Remaining rounds: { this.renderMaxRounds() }</span>
+                <span className='right' style={{ paddingRight: '15px'}}>N: {n}</span>
             </div>
             <GameBoard active={roundActive} currentPosition={positions[0]}/>
             { ended ? <Redirect to="/" /> : null }
