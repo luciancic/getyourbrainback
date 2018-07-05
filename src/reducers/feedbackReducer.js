@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
             return initialState;
         }
         case ROUND_END: {
-            break
+            return state;
         }
         case USER_ANSWERED: {
             break

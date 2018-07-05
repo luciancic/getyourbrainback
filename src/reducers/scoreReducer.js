@@ -14,7 +14,7 @@ const initialScore = {
 export default (state = initialScore, action) => {
     switch (action.type) {
         case ROUND_END: {
-            break
+            return state;
         }
         case USER_ANSWERED: {
             break

@@ -1,10 +1,11 @@
-import { GAME_START, GAME_END, GAME_CANCEL, ROUND_START } from '../actions/types';
+import { GAME_START, GAME_END, GAME_CANCEL, ROUND_START, ROUND_END } from '../actions/types';
 import { getRandomNumber, overrideRandom } from '../utils';
 
 const initialState = {
     positions: [],
     letters: [],
     currentRound: 0,
+    roundActive: false,
     ended: true
 }
 
@@ -22,10 +23,14 @@ export default (state = initialState, action) => {
             const newLetter = letter && overrideRandom() ? letter : getRandomNumber();
 
             return Object.assign({}, state, {
+                roundActive: true,
                 currentRound: state.currentRound + 1,
                 positions: [newPosition, ...state.positions],
                 letters: [newLetter, ...state.letters]
             });
+        }
+        case ROUND_END: {
+            return Object.assign({}, state, { roundActive: false });
         }
         case GAME_END: {
             return Object.assign({}, state, { ended: true });
