@@ -1,11 +1,15 @@
 import React from 'react';
 import Indicator from './Indicator';
-import RemainingRoundsIndicator from './RemainingRoundsIndicator';
+
+function renderRemainingRounds(maxRounds, remainingRounds) {
+    return remainingRounds > maxRounds ? 
+        <span>{maxRounds}<span className="green-text"> + {remainingRounds - maxRounds}</span></span>
+        : remainingRounds
+}
 
 export default ({ maxRounds, remainingRounds, n }) => (
-    <div style={{ margin: '15px 0' }}>
-        <RemainingRoundsIndicator maxRounds={maxRounds} remainingRounds={remainingRounds}/>
+    <div>
+        <Indicator displaySide="left">Remaining rounds: { renderRemainingRounds(maxRounds, remainingRounds) }</Indicator>
         <Indicator displaySide="right">N: {n}</Indicator>
-        <br/>
     </div>
 )

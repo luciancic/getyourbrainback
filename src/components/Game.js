@@ -6,6 +6,8 @@ import IndicatorBar from './game/IndicatorBar';
 import { startGame, endGame, cancelGame } from '../actions/gameActions';
 import { startRound, endRound } from '../actions/roundActions';
 
+import './Game.css';
+
 class Game extends Component {
     componentDidMount() {
         const { settings, endGame } = this.props;
@@ -42,11 +44,13 @@ class Game extends Component {
         const { ended, positions, roundActive, currentRound } = this.props.game;
         const remainingRounds = maxRounds - currentRound + n + 1;
         
-        return <div className="container">
+        return <div className="game">
             <IndicatorBar maxRounds={maxRounds} remainingRounds={remainingRounds} n={n} />
             <GameBoard active={roundActive} currentPosition={positions[0]}/>
-            <button className='btn'>Match Position</button>
-            <button className='btn'>Match Letter</button>
+            <div className="game-buttons"> 
+                <button className='btn'>Match Position</button>
+                <button className='btn'>Match Letter</button>
+            </div>
             { ended ? <Redirect to="/" /> : null }
         </div>
     }
