@@ -10,15 +10,34 @@ import './Game.css';
 
 class Game extends Component {
     componentDidMount() {
-        const { settings, endGame } = this.props;
+        const { endGame, cancelGame } = this.props;
+        const { ended, currentRound } = this.props.game;
+        const { duration, maxRounds, n } = this.props.settings;
 
-        if (!this.props.game.ended) this.playRound();
+        // First round starts immediately.
+        if (!ended) this.playRound();
+
+        // Set up a round loop.
         this.interval = setInterval(() => {
-            if (this.props.game.currentRound === settings.maxRounds + settings.n) {
+            if (currentRound === maxRounds + n) {
                 return endGame();
             }
             this.playRound();
-        }, settings.duration + 300);
+        }, duration + 300);
+
+        this.cancelGameListener = (e) => { if (e.key === 'Escape') cancelGame() };
+        window.addEventListener('keydown', this.cancelGameListener, false);
+    }
+    
+    componentWillUnmount() {
+        const { game, cancelGame } = this.props;
+        
+        clearInterval(this.interval);
+        clearTimeout(this.timeout);
+        window.removeEventListener('keydown', this.cancelGameListener, false);
+        
+        // In case component unmounts because of back navigation, we need to cancel manually.
+        if (!game.ended) { cancelGame() }
     }
     
     playRound = () => {
@@ -31,14 +50,6 @@ class Game extends Component {
         }, duration);
     }
 
-    componentWillUnmount() {
-        const { game, cancelGame } = this.props;
-
-        clearInterval(this.interval);
-        clearTimeout(this.timeout);
-        if (!game.ended) { cancelGame() }
-    }
-    
     render() {
         const { n, maxRounds } = this.props.settings;
         const { ended, positions, roundActive, currentRound } = this.props.game;
