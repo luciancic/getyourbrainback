@@ -4,18 +4,18 @@ import { Redirect } from 'react-router-dom';
 import GameBoard from './game/GameBoard';
 import IndicatorBar from './game/IndicatorBar';
 import { startGame, endGame, cancelGame } from '../actions/gameActions';
-import { startRound, endRound } from '../actions/roundActions';
+import { startRound, endRound, answer } from '../actions/roundActions';
 
 import './Game.css';
 
 class Game extends Component {
     componentDidMount() {
-        const { endGame, cancelGame } = this.props;
-        const { ended, currentRound } = this.props.game;
+        const { endGame } = this.props;
+        const { gameRunning, currentRound } = this.props.game;
         const { duration, maxRounds, n } = this.props.settings;
 
         // First round starts immediately.
-        if (!ended) this.playRound();
+        if (gameRunning) this.playRound();
 
         // Set up a round loop.
         this.interval = setInterval(() => {
@@ -25,8 +25,7 @@ class Game extends Component {
             this.playRound();
         }, duration + 300);
 
-        this.cancelGameListener = (e) => { if (e.key === 'Escape') cancelGame() };
-        window.addEventListener('keydown', this.cancelGameListener, false);
+        window.addEventListener('keydown', this.gameListener, false);
     }
     
     componentWillUnmount() {
@@ -34,44 +33,74 @@ class Game extends Component {
         
         clearInterval(this.interval);
         clearTimeout(this.timeout);
-        window.removeEventListener('keydown', this.cancelGameListener, false);
+        window.removeEventListener('keydown', this.gameListener, false);
         
         // In case component unmounts because of back navigation, we need to cancel manually.
-        if (!game.ended) { cancelGame() }
+        if (game.gameRunning) { cancelGame() }
     }
     
+    gameListener = (e) => {
+        switch (e.key) {
+            case 'Escape':
+                this.props.cancelGame();
+                break;
+            case 'a':
+                this.match('positions')();
+                break;
+            case 'l':
+                this.match('letters')();
+                break;
+            default:
+                break;
+        }
+    }
+
+    match = (stimulus) => () => {
+        const { answer, settings } = this.props;
+        const { answers, currentRound, roundActive } = this.props.game;
+        const presentArray = this.props.game[stimulus];
+        
+        if (answers[stimulus] === null && roundActive && currentRound > settings.n) {
+            answer({ [stimulus]: presentArray[0] === presentArray[settings.n]})
+        }
+    }
+
     playRound = () => {
         const { game, settings, startRound, endRound } = this.props;
         const { n, duration } = settings;
-        const { positions, letters } = game;
+        const { answers, positions, letters } = game;
         startRound(positions[n - 1], letters[n - 1]);
         this.timeout = setTimeout(() => {
-            endRound();
+            endRound({ 
+                positionMissed: (answers.positions !== null) && (positions[0] === positions[n-1]), 
+                letterMissed: (answers.letters !== null) && (letters[0] === letters[n-1])
+            });
         }, duration);
     }
 
     render() {
         const { n, maxRounds } = this.props.settings;
-        const { ended, positions, roundActive, currentRound } = this.props.game;
+        const { gameRunning, positions, roundActive, currentRound } = this.props.game;
         const remainingRounds = maxRounds - currentRound + n + 1;
         
         return <div className="game">
             <IndicatorBar maxRounds={maxRounds} remainingRounds={remainingRounds} n={n} />
             <GameBoard active={roundActive} currentPosition={positions[0]}/>
             <div className="game-buttons"> 
-                <button className='btn'>Match Position</button>
-                <button className='btn'>Match Letter</button>
+                <button className='btn' onClick={this.match('positions')}>Match Position</button>
+                <button className='btn' onClick={this.match('letters')}>Match Letter</button>
             </div>
-            { ended ? <Redirect to="/" /> : null }
+            { !gameRunning ? <Redirect to="/" /> : null }
         </div>
     }
 }
 
-function mapStateToProps({ settings, game, roundActive }) {
+function mapStateToProps({ settings, game }) {
     return { settings, game }
 }
 
 const actions = {
+    answer,
     startGame, 
     endGame, 
     cancelGame,

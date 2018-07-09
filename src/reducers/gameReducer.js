@@ -1,4 +1,4 @@
-import { GAME_START, GAME_END, GAME_CANCEL, ROUND_START, ROUND_END } from '../actions/types';
+import { GAME_START, GAME_END, GAME_CANCEL, ROUND_START, ROUND_END, USER_ANSWERED } from '../actions/types';
 import { getRandomNumber, overrideRandom } from '../utils';
 
 const initialState = {
@@ -6,13 +6,17 @@ const initialState = {
     letters: [],
     currentRound: 0,
     roundActive: false,
-    ended: true
+    gameRunning: false,
+    answers: {
+        positions: null,
+        letters: null
+    }
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case GAME_START: {
-            return Object.assign({}, state, { ended: false });
+            return Object.assign({}, state, initialState, { gameRunning: true });
         }
         case ROUND_START: {
             const { position, letter } = action.payload;
@@ -26,17 +30,25 @@ export default (state = initialState, action) => {
                 roundActive: true,
                 currentRound: state.currentRound + 1,
                 positions: [newPosition, ...state.positions],
-                letters: [newLetter, ...state.letters]
+                letters: [newLetter, ...state.letters],
+                answers: {
+                    positions: null,
+                    letters: null
+                }
             });
         }
         case ROUND_END: {
             return Object.assign({}, state, { roundActive: false });
         }
         case GAME_END: {
-            return Object.assign({}, state, { ended: true });
+            return Object.assign({}, state, { gameRunning: false });
         }
         case GAME_CANCEL: {
-            return Object.assign({}, state, { ended: true });
+            return Object.assign({}, state, { gameRunning: false });
+        }
+        case USER_ANSWERED: {
+            const answers = Object.assign({}, state.answers, action.payload);
+            return Object.assign({}, state, { answers })
         }
         default: return state;
     }

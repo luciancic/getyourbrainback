@@ -17,7 +17,7 @@ export default (state = initialScore, action) => {
             return state;
         }
         case USER_ANSWERED: {
-            break
+            return state;
         }
         default: return state;
     }
