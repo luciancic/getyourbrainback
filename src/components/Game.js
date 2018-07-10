@@ -80,25 +80,37 @@ class Game extends Component {
         }, duration);
     }
 
+    getFeedbackColor(feedback) {
+        switch (feedback) {
+            case null: return 'white';
+            case 'correct': return 'green';
+            case 'mistake': return 'red';
+            case 'missed': return 'blue';
+            default: break;
+        }
+    }
+
     render() {
         const { n, maxRounds } = this.props.settings;
         const { gameRunning, positions, roundActive, currentRound } = this.props.game;
         const remainingRounds = maxRounds - currentRound + n + 1;
-        
+        const positionsButtonColor = this.getFeedbackColor(this.props.feedback.positions);
+        const lettersButtonColor = this.getFeedbackColor(this.props.feedback.letters);
+
         return <div className="game">
             <IndicatorBar maxRounds={maxRounds} remainingRounds={remainingRounds} n={n} />
             <GameBoard active={roundActive} currentPosition={positions[0]}/>
             <div className="game-buttons"> 
-                <button className='btn' onClick={this.match('positions')}>Match Position</button>
-                <button className='btn' onClick={this.match('letters')}>Match Letter</button>
+                <button className={`btn ${positionsButtonColor} lighten-4 blue-text text-darken-4`} onClick={this.match('positions')}>Match Position</button>
+                <button className={`btn ${lettersButtonColor} lighten-4 blue-text text-darken-4`} onClick={this.match('letters')}>Match Letter</button>
             </div>
             { !gameRunning ? <Redirect to="/" /> : null }
         </div>
     }
 }
 
-function mapStateToProps({ settings, game }) {
-    return { settings, game }
+function mapStateToProps({ settings, game, feedback }) {
+    return { settings, game, feedback }
 }
 
 const actions = {
