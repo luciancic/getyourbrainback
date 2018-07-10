@@ -5,8 +5,9 @@ export const startRound = (position, letter) => ({
     payload: { position, letter }
 });
 
-export const endRound = () => ({
-    type: ROUND_END
+export const endRound = (missedResponses) => ({
+    type: ROUND_END,
+    payload: missedResponses
 });
 
 export const answer = (answer) => ({

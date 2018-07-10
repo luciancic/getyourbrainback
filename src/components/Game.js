@@ -66,14 +66,16 @@ class Game extends Component {
     }
 
     playRound = () => {
-        const { game, settings, startRound, endRound } = this.props;
-        const { n, duration } = settings;
-        const { answers, positions, letters } = game;
+        const { startRound, endRound } = this.props;
+        const { n, duration } = this.props.settings;
+        const { positions, letters } = this.props.game;
         startRound(positions[n - 1], letters[n - 1]);
         this.timeout = setTimeout(() => {
+            // Must destructure values from game inside the setTimeout to ensure the values are extracted at the correct moment. 
+            const { answers, positions, letters } = this.props.game;
             endRound({ 
-                positionMissed: (answers.positions !== null) && (positions[0] === positions[n-1]), 
-                letterMissed: (answers.letters !== null) && (letters[0] === letters[n-1])
+                positionMissed: answers.positions === null && positions[0] === positions[n], 
+                letterMissed: answers.letters === null && letters[0] === letters[n]
             });
         }, duration);
     }
