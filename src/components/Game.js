@@ -11,7 +11,7 @@ import './Game.css';
 class Game extends Component {
     componentDidMount() {
         const { endGame } = this.props;
-        const { gameRunning, currentRound } = this.props.game;
+        const { gameRunning } = this.props.game;
         const { duration, maxRounds, n } = this.props.settings;
 
         // First round starts immediately.
@@ -19,7 +19,8 @@ class Game extends Component {
 
         // Set up a round loop.
         this.interval = setInterval(() => {
-            if (currentRound === maxRounds + n) {
+            // Do not destructure currentRound because it needs to check value by reference.
+            if (this.props.game.currentRound === maxRounds + n) {
                 return endGame();
             }
             this.playRound();
