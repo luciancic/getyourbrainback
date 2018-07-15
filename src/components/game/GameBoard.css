@@ -10,15 +10,17 @@
 }
 
 .position-circle {
+    transition: background-color 200ms ease-in-out;
     height: 70px;
     width: 70px;
     border-radius: 100%;
 }
 
-@media (min-height: 500px) {
+.position-buttons button {
+    width: 11em;
 }
 
-@media (max-height: 500px) and (min-aspect-ratio: 5/7) {
+@media (max-height: 500px) and (min-aspect-ratio: 16/10) {
     .position-circle {
         height: 45px;
         width: 45px;

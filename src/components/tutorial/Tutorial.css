@@ -1,0 +1,17 @@
+.tutorial {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+}
+
+.tutorial .game {
+    height: 80vh;
+}
+
+.roundBar {
+    background: linear-gradient(rgba(0, 4, 255, 0), rgba(0, 4, 255, 0.8));
+}
+
+@media (max-height: 500px) and (min-aspect-ratio: 16/10) {
+   
+}

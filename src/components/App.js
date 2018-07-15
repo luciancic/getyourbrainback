@@ -4,6 +4,7 @@ import Menu from './Menu';
 import Game from './Game';
 import Results from './Results';
 import Settings from './Settings';
+import Tutorial from './tutorial/Tutorial';
 import 'materialize-css/dist/css/materialize.min.css';
 
 import store from '../store';
@@ -19,6 +20,7 @@ class App extends Component {
         <Route path='/game' component={Game}/>
         <Route path='/results' component={Results}/>
         <Route path='/settings' component={Settings}/>
+        <Route path='/tutorial' component={Tutorial}/>
       </div>
     </BrowserRouter>
   }
