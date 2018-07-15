@@ -1,3 +1,5 @@
+export const AUDIO_PLAYED = 'AUDIO_PLAYED';
+
 export const GAME_START = 'GAME_START';
 export const GAME_END = 'GAME_END';
 export const GAME_CANCEL = 'GAME_CANCEL';

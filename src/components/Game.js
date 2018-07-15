@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import GameBoard from './game/GameBoard';
+import Letters from './game/Letters';
 import IndicatorBar from './game/IndicatorBar';
 import { startGame, endGame, cancelGame } from '../actions/gameActions';
-import { startRound, endRound, answer } from '../actions/roundActions';
+import { startRound, endRound, answer, playAudio } from '../actions/roundActions';
 
 import './Game.css';
 
@@ -93,7 +94,7 @@ class Game extends Component {
 
     render() {
         const { n, maxRounds } = this.props.settings;
-        const { gameRunning, positions, roundActive, currentRound } = this.props.game;
+        const { gameRunning, positions, letters, roundActive, currentRound } = this.props.game;
         const remainingRounds = maxRounds - currentRound + n + 1;
         const positionsButtonColor = this.getFeedbackColor(this.props.feedback.positions);
         const lettersButtonColor = this.getFeedbackColor(this.props.feedback.letters);
@@ -101,6 +102,7 @@ class Game extends Component {
         return <div className="game">
             <IndicatorBar maxRounds={maxRounds} remainingRounds={remainingRounds} n={n} />
             <GameBoard active={roundActive} currentPosition={positions[0]}/>
+            <Letters roundActive={roundActive} audioPlayed={this.props.audioPlayed} playAudio={this.props.playAudio} currentLetter={letters[0]}/>
             <div className="game-buttons"> 
                 <button className={`btn ${positionsButtonColor} lighten-4 blue-text text-darken-4`} onClick={this.match('positions')}>Match Position</button>
                 <button className={`btn ${lettersButtonColor} lighten-4 blue-text text-darken-4`} onClick={this.match('letters')}>Match Letter</button>
@@ -110,8 +112,8 @@ class Game extends Component {
     }
 }
 
-function mapStateToProps({ settings, game, feedback }) {
-    return { settings, game, feedback }
+function mapStateToProps({ settings, game, feedback, audioPlayed }) {
+    return { settings, game, feedback, audioPlayed }
 }
 
 const actions = {
@@ -120,7 +122,8 @@ const actions = {
     endGame, 
     cancelGame,
     startRound,
-    endRound
+    endRound,
+    playAudio
 }
 
 export default connect(mapStateToProps, actions)(Game)
