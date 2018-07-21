@@ -10,6 +10,16 @@
 
 .roundBar {
     background: linear-gradient(rgba(0, 4, 255, 0), rgba(0, 4, 255, 0.8));
+    height: 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.positionMini {
+    position: relative;
+    bottom: 75px;
+    transform: scale(0.3, 0.3);
 }
 
 @media (max-height: 500px) and (min-aspect-ratio: 16/10) {
