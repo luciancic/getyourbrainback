@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { changeSettings } from "../actions/settingsActions";
 
 import SettingsSelect from "./SettingsSelect";
+import escapeable from './escapeable';
 
 const nOptions = [ 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
 const maxRoundsOptions = [ 10, 15, 20, 25, 30 ];
@@ -25,6 +26,8 @@ class Settings extends Component {
         </div>
     }
 }
+
+Settings = escapeable(Settings);
 
 function mapStateToProps(state) { 
     return { settings: state.settings } 
