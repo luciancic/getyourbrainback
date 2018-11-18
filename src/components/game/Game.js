@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import GameBoard from './game/GameBoard';
-import Letters from './game/Letters';
-import IndicatorBar from './game/IndicatorBar';
-import { startGame, endGame, cancelGame } from '../actions/gameActions';
-import { startRound, endRound, answer, playAudio } from '../actions/roundActions';
+import Court from '../court/Court';
+import { startGame, endGame, cancelGame } from '../../actions/gameActions';
+import { startRound, endRound, answer, playAudio } from '../../actions/roundActions';
 
 import './Game.css';
 
@@ -99,16 +97,19 @@ class Game extends Component {
         const positionsButtonColor = this.getFeedbackColor(this.props.feedback.positions);
         const lettersButtonColor = this.getFeedbackColor(this.props.feedback.letters);
 
-        return <div className="game">
-            <IndicatorBar maxRounds={maxRounds} remainingRounds={remainingRounds} n={n} />
-            <GameBoard active={roundActive} currentPosition={positions[0]}/>
-            <Letters roundActive={roundActive} audioPlayed={this.props.audioPlayed} playAudio={this.props.playAudio} currentLetter={letters[0]}/>
-            <div className="game-buttons"> 
-                <button className={`btn ${positionsButtonColor} lighten-4 blue-text text-darken-4`} onClick={this.match('positions')}>Match Position</button>
-                <button className={`btn ${lettersButtonColor} lighten-4 blue-text text-darken-4`} onClick={this.match('letters')}>Match Letter</button>
-            </div>
-            { !gameRunning ? <Redirect to="/" /> : null }
-        </div>
+        // TODO: Replace this with Court
+        return <Court positions={positions} letters={letters}/>
+        // <div className="game">
+        //     <IndicatorBar maxRounds={maxRounds} remainingRounds={remainingRounds} n={n} />
+        //     <GameBoard active={roundActive} currentPosition={positions[0]}/>
+        //     <Letters roundActive={roundActive} audioPlayed={this.props.audioPlayed} playAudio={this.props.playAudio} currentLetter={letters[0]}/>
+        //     <div className="game-buttons"> 
+        //         {/* TODO: extract match function to make it usable in tutorial */}
+        //         <button className={`btn ${positionsButtonColor} lighten-4 blue-text text-darken-4`} onClick={this.match('positions')}>Match Position</button>
+        //         <button className={`btn ${lettersButtonColor} lighten-4 blue-text text-darken-4`} onClick={this.match('letters')}>Match Letter</button>
+        //     </div>
+        //     { !gameRunning ? <Redirect to="/" /> : null }
+        // </div>
     }
 }
 

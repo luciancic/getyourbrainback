@@ -1,5 +1,5 @@
 import React from 'react';
-import './GameBoard.css';
+import './PositionBoard.css';
 import PositionCircle from './PositionCircle';
 
 const arr = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];

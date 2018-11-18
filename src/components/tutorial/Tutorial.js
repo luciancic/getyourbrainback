@@ -22,3 +22,8 @@
 // n of 3."
 
 // 7th page: "Pro tips"
+
+import React from 'react';
+import Court from '../court/Court';
+
+export default (props) => <Court {...props} positions={[1]} letters={[1]} />
