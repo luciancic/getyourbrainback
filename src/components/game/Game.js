@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import Court from '../court/Court';
 import { startGame, endGame, cancelGame } from '../../actions/gameActions';
 import { startRound, endRound, answer, playAudio } from '../../actions/roundActions';
@@ -91,14 +90,27 @@ class Game extends Component {
     }
 
     render() {
-        const { n, maxRounds } = this.props.settings;
-        const { gameRunning, positions, letters, roundActive, currentRound } = this.props.game;
+        const { audioPlayed, game, settings } = this.props;
+        const { n, maxRounds } = settings;
+        const { gameRunning, roundActive, currentRound } = game;
         const remainingRounds = maxRounds - currentRound + n + 1;
         const positionsButtonColor = this.getFeedbackColor(this.props.feedback.positions);
         const lettersButtonColor = this.getFeedbackColor(this.props.feedback.letters);
-
-        // TODO: Replace this with Court
-        return <Court positions={positions} letters={letters}/>
+        
+        const { positions, letters } = this.props.game;
+        return <Court 
+            audioPlayed={audioPlayed}
+            gameRunning={gameRunning}
+            letters={letters}
+            lettersButtonColor={lettersButtonColor}
+            maxRounds={maxRounds}
+            n={n}
+            playAudio={this.props.playAudio}
+            positions={positions}
+            positionsButtonColor={positionsButtonColor}
+            remainingRounds={remainingRounds}
+            roundActive={roundActive}
+        />
         // <div className="game">
         //     <IndicatorBar maxRounds={maxRounds} remainingRounds={remainingRounds} n={n} />
         //     <GameBoard active={roundActive} currentPosition={positions[0]}/>
