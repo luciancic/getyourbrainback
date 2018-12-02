@@ -2,8 +2,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import IndicatorBar from './IndicatorBar';
-import PositionBoard from './PositionBoard';
 import Letters from './Letters';
+import MatchButton from './MatchButton';
+import PositionBoard from './PositionBoard';
 import escapeable from '../escapeable';
 
 class Court extends Component {
@@ -14,7 +15,9 @@ class Court extends Component {
             letters, 
             lettersButtonColor,
             maxRounds, 
-            n, 
+            n,
+            positionHandler,
+            lettersHandler,
             playAudio, 
             positions, 
             positionsButtonColor, 
@@ -28,8 +31,10 @@ class Court extends Component {
             <Letters roundActive={roundActive} currentLetter={letters[0]} audioPlayed={audioPlayed} playAudio={playAudio}/>
             <div className="game-buttons">
                 {/* TODO: extract match function to make it usable in tutorial */}
-                <button className={`btn ${positionsButtonColor} lighten-4 blue-text text-darken-4`}>Match Position</button>
-                <button className={`btn ${lettersButtonColor} lighten-4 blue-text text-darken-4`}>Match Letter</button>
+                <MatchButton color={positionsButtonColor} name="Match Position" onClick={positionHandler}/>
+                <MatchButton color={lettersButtonColor} name="Match Letter" onClick={lettersHandler}/>
+                {/* <button className={`btn ${positionsButtonColor} lighten-4 blue-text text-darken-4`}>Match Position</button>
+                <button className={`btn ${lettersButtonColor} lighten-4 blue-text text-darken-4`}>Match Letter</button> */}
             </div>
             { !gameRunning ? <Redirect to="/" /> : null }
         </div>

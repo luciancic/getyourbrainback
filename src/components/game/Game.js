@@ -103,25 +103,16 @@ class Game extends Component {
             gameRunning={gameRunning}
             letters={letters}
             lettersButtonColor={lettersButtonColor}
+            lettersHandler={this.match('letters')}
             maxRounds={maxRounds}
             n={n}
             playAudio={this.props.playAudio}
             positions={positions}
+            positionHandler={this.match('positions')}
             positionsButtonColor={positionsButtonColor}
             remainingRounds={remainingRounds}
             roundActive={roundActive}
         />
-        // <div className="game">
-        //     <IndicatorBar maxRounds={maxRounds} remainingRounds={remainingRounds} n={n} />
-        //     <GameBoard active={roundActive} currentPosition={positions[0]}/>
-        //     <Letters roundActive={roundActive} audioPlayed={this.props.audioPlayed} playAudio={this.props.playAudio} currentLetter={letters[0]}/>
-        //     <div className="game-buttons"> 
-        //         {/* TODO: extract match function to make it usable in tutorial */}
-        //         <button className={`btn ${positionsButtonColor} lighten-4 blue-text text-darken-4`} onClick={this.match('positions')}>Match Position</button>
-        //         <button className={`btn ${lettersButtonColor} lighten-4 blue-text text-darken-4`} onClick={this.match('letters')}>Match Letter</button>
-        //     </div>
-        //     { !gameRunning ? <Redirect to="/" /> : null }
-        // </div>
     }
 }
 
