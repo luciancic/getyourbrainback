@@ -5,14 +5,16 @@ export default (WrappedComponent) => class escapeable extends Component {
     state = { redirect: false };
     
     componentWillMount() {
-        this.escapeListener = window.addEventListener('keydown', (e) => { 
-            if(e.key === 'Escape') this.setState({redirect: true}) 
-        });
+        window.addEventListener('keydown', this.escapeListener);
     }
-
+    
     componentWillUnmount() {
         window.removeEventListener('keydown', this.escapeListener);
     }
+
+    escapeListener = (e) => { 
+        if(e.key === 'Escape') this.setState({redirect: true}) 
+    };
 
     render() {
         return this.state.redirect ? 

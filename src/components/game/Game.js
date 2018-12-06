@@ -90,14 +90,13 @@ class Game extends Component {
     }
 
     render() {
-        const { audioPlayed, game, settings } = this.props;
+        const { audioPlayed, game, settings, feedback } = this.props;
         const { n, maxRounds } = settings;
-        const { gameRunning, roundActive, currentRound } = game;
+        const { gameRunning, roundActive, currentRound, positions, letters } = game;
         const remainingRounds = maxRounds - currentRound + n + 1;
-        const positionsButtonColor = this.getFeedbackColor(this.props.feedback.positions);
-        const lettersButtonColor = this.getFeedbackColor(this.props.feedback.letters);
+        const positionsButtonColor = this.getFeedbackColor(feedback.positions);
+        const lettersButtonColor = this.getFeedbackColor(feedback.letters);
         
-        const { positions, letters } = this.props.game;
         return <Court 
             audioPlayed={audioPlayed}
             gameRunning={gameRunning}
