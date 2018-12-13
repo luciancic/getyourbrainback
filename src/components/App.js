@@ -6,6 +6,7 @@ import Results from './Results';
 import Settings from './Settings';
 import Tutorial from './tutorial/Tutorial';
 import 'materialize-css/dist/css/materialize.min.css';
+import './App.css'; // Global styles
 
 import store from '../store';
 
