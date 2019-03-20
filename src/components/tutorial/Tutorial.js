@@ -26,4 +26,19 @@
 import React from 'react';
 import Court from '../court/Court';
 
-export default (props) => <Court {...props} positions={[1]} letters={[1]} isTutorial={true} />
+import "./Tutorial.css";
+
+export default (props) => (
+    <div className="tutorial">
+        <section className="tutorial-info">
+            <h1>Intro</h1>
+            <p><em>Get your brain back!</em> is a memory game where you need to remember the positions of the circles and the letters you hear. In this tutorial, you will get familiar with rounds, n, and matching.</p>
+            <div className="tutorial-buttons">
+                <button>Back</button>
+                <button>Next</button>
+                <button>Quit</button>
+            </div>
+        </section>
+        <Court {...props} positions={[1]} letters={[1]} isTutorial={true} />
+    </div>
+)
