@@ -4,8 +4,6 @@ import Court from '../court/Court';
 import { startGame, endGame, cancelGame } from '../../actions/gameActions';
 import { startRound, endRound, answer, playAudio } from '../../actions/roundActions';
 
-import './Game.css';
-
 class Game extends Component {
     componentDidMount() {
         const { endGame } = this.props;
