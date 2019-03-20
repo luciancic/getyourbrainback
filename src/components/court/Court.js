@@ -31,7 +31,6 @@ class Court extends Component {
         return <div className="court">
             <IndicatorBar maxRounds={maxRounds} remainingRounds={remainingRounds} n={n} />
             <PositionBoard active={roundActive} currentPosition={positions[0]}/>
-            <Letters roundActive={roundActive} currentLetter={letters[0]} audioPlayed={audioPlayed} playAudio={playAudio}/>
             <div className="court-buttons">
                 {/* TODO: extract match function to make it usable in tutorial */}
                 <MatchButton color={positionsButtonColor} name="Match Position" onClick={positionHandler}/>
@@ -39,6 +38,7 @@ class Court extends Component {
                 {/* <button className={`btn ${positionsButtonColor} lighten-4 blue-text text-darken-4`}>Match Position</button>
                 <button className={`btn ${lettersButtonColor} lighten-4 blue-text text-darken-4`}>Match Letter</button> */}
             </div>
+            <Letters roundActive={roundActive} currentLetter={letters[0]} audioPlayed={audioPlayed} playAudio={playAudio}/>
             { gameRunning || isTutorial ?  null : <Redirect to="/" /> }
         </div>
     }
