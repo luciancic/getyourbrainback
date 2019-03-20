@@ -26,4 +26,4 @@
 import React from 'react';
 import Court from '../court/Court';
 
-export default (props) => <Court {...props} positions={[1]} letters={[1]} />
+export default (props) => <Court {...props} positions={[1]} letters={[1]} isTutorial={true} />
