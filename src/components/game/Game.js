@@ -65,8 +65,7 @@ class Game extends Component {
     playRound = () => {
         const { startRound, endRound } = this.props;
         const { n, duration } = this.props.settings;
-        const { positions, letters } = this.props.game;
-        startRound(positions[n - 1], letters[n - 1]);
+        startRound();
         this.timeout = setTimeout(() => {
             // Must destructure values from game inside the setTimeout to ensure the values are extracted at the correct moment. 
             const { answers, positions, letters } = this.props.game;
