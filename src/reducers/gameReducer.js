@@ -7,9 +7,9 @@ const initialState = {
     currentRound: 0,
     roundActive: false,
     gameRunning: false,
-    answers: {
-        positions: null,
-        letters: null
+    answered: {
+        positions: false,
+        letters: false
     }
 }
 
@@ -19,8 +19,9 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, initialState, { gameRunning: true });
         }
         case ROUND_START: {
-            const oldPosition = state.positions[ action.n - 1 ]; // IMPORTANT: Reintroduce N
-            const oldLetter = state.letters[ action.n - 1 ]; // IMPORTANT: Reintroduce N
+            const { n } = action.payload;
+            const oldPosition = state.positions[ n - 1 ];
+            const oldLetter = state.letters[ n - 1 ];
             // If we do not use overrideRandom, there would be a 1/9 chance to match.
             // That's too low. A player could play a game with 0 matches and that's boring.
             // That's why we override the randomness and force-return a match 25% of the time.
@@ -32,9 +33,9 @@ export default (state = initialState, action) => {
                 currentRound: state.currentRound + 1,
                 positions: [newPosition, ...state.positions],
                 letters: [newLetter, ...state.letters],
-                answers: {
-                    positions: null,
-                    letters: null
+                answered: {
+                    positions: false,
+                    letters: false
                 }
             });
         }
@@ -48,8 +49,15 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, { gameRunning: false });
         }
         case USER_ANSWERED: {
-            const answers = Object.assign({}, state.answers, action.payload);
-            return Object.assign({}, state, { answers })
+            const { stimulusChosen } = action.payload;
+            const newState = { 
+                answered: {
+                    positions: state.answered.positions,
+                    letters: state.answered.letters
+                }
+            };
+            newState.answered[stimulusChosen] = true;
+            return Object.assign( {}, state, newState );
         }
         default: return state;
     }

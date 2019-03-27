@@ -14,25 +14,21 @@ const initialScore = {
 export default (state = initialScore, action) => {
     switch (action.type) {
         case ROUND_END: {
-            // Deep clone state
-            const newState = JSON.parse(JSON.stringify(state));
-            if (action.payload.positionMissed) {
-                newState.positions.mistakes += 1;
-            } if (action.payload.letterMissed) {
-                newState.letters.mistakes += 1;
-            }
+            const { positionMissed, letterMissed } = action.payload;
+            
+            let newState = JSON.parse(JSON.stringify(state));
+            newState.positions.mistakes += positionMissed ? 1 : 0;
+            newState.letters.mistakes += letterMissed ? 1 : 0;
             return newState;
         }
         case USER_ANSWERED: {
-            const newState = JSON.parse(JSON.stringify(state));
-            const { positions, letters } = action.payload;
-            if (positions !== undefined) {
-                newState.positions.correct += positions ? 1 : 0;
-                newState.positions.mistakes += positions ? 0 : 1;
-            } if (letters !== undefined) {
-                newState.letters.correct += letters ? 1 : 0;
-                newState.letters.mistakes += letters ? 0 : 1;
-            }
+            // return newState;
+            const { stimulusChosen, answerCorrect } = action.payload;
+
+            // Create deep clone;
+            let newState = JSON.parse(JSON.stringify(state));
+            newState[stimulusChosen].correct += answerCorrect ? 1 : 0;
+            newState[stimulusChosen].mistakes += !answerCorrect ? 1 : 0;
             return newState;
         }
         case GAME_START: {

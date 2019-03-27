@@ -12,18 +12,16 @@ export default (state = initialState, action) => {
             return initialState;
         }
         case ROUND_END: {
-            const newState = {};
-            if (action.payload.positionMissed) { newState.positions = 'missed' }
-            if (action.payload.letterMissed) { newState.letters = 'missed' }
-            return Object.assign({}, state, newState);
+            const { positionMissed, letterMissed } = action.payload;
+            return Object.assign({}, state, {
+                positions: positionMissed ? 'missed' : null,
+                letters: letterMissed ? 'missed' : null
+            });
         }
         case USER_ANSWERED: {
+            const { stimulusChosen, answerCorrect } = action.payload;
             const newState = {};
-            if (action.payload.hasOwnProperty('positions')) {
-                newState.positions = action.payload.positions ? 'correct' : 'mistake';
-            } else if (action.payload.hasOwnProperty('letters')) {
-                newState.letters = action.payload.letters ? 'correct' : 'mistake';
-            }
+            newState[stimulusChosen] = answerCorrect ? 'correct' : 'mistake';
             return Object.assign({}, state, newState);
         }
         default: return state;

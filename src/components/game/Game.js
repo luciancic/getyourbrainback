@@ -42,37 +42,22 @@ class Game extends Component {
                 this.props.cancelGame();
                 break;
             case 'a':
-                this.match('positions')();
+                this.props.answer('positions');
                 break;
             case 'l':
-                this.match('letters')();
+                this.props.answer('letters');
                 break;
             default:
                 break;
         }
     }
 
-    match = (stimulus) => () => {
-        const { answer, settings } = this.props;
-        const { answers, currentRound, roundActive } = this.props.game;
-        const presentArray = this.props.game[stimulus];
-        
-        if (answers[stimulus] === null && roundActive && currentRound > settings.n) {
-            answer({ [stimulus]: presentArray[0] === presentArray[settings.n]})
-        }
-    }
-
     playRound = () => {
         const { startRound, endRound } = this.props;
-        const { n, duration } = this.props.settings;
+        const { duration } = this.props.settings;
         startRound();
         this.timeout = setTimeout(() => {
-            // Must destructure values from game inside the setTimeout to ensure the values are extracted at the correct moment. 
-            const { answers, positions, letters } = this.props.game;
-            endRound({ 
-                positionMissed: answers.positions === null && positions[0] === positions[n], 
-                letterMissed: answers.letters === null && letters[0] === letters[n]
-            });
+            endRound();
         }, duration);
     }
 
@@ -99,12 +84,12 @@ class Game extends Component {
             gameRunning={gameRunning}
             letters={letters}
             lettersButtonColor={lettersButtonColor}
-            lettersHandler={this.match('letters')}
+            lettersHandler={this.props.answer.bind(this, 'letters')}
             maxRounds={maxRounds}
             n={n}
             playAudio={this.props.playAudio}
             positions={positions}
-            positionHandler={this.match('positions')}
+            positionHandler={this.props.answer.bind(this, 'positions')}
             positionsButtonColor={positionsButtonColor}
             remainingRounds={remainingRounds}
             roundActive={roundActive}
