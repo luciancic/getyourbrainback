@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { startGame} from '../actions/gameActions';
+import { startTutorial } from '../actions/tutorialActions';
 import './Menu.css';
 
 class Menu extends Component {
@@ -13,11 +14,11 @@ class Menu extends Component {
             </section>
             <section id='menu-buttons'>
                 <Link to='/game'><button className='btn green'  onClick={this.props.startGame}>Play Game</button></Link>
-                <Link to='/tutorial'><button className='btn blue' onClick={this.props.startGame}>Play Tutorial</button></Link>
+                <Link to='/tutorial'><button className='btn blue' onClick={this.props.startTutorial}>Play Tutorial</button></Link>
                 <Link to='/settings'><button className='btn orange'>Settings</button></Link>
             </section>
         </div>
     }
 }
 
-export default connect(null, { startGame })(Menu);
+export default connect(null, { startGame, startTutorial })(Menu);

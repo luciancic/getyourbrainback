@@ -9,4 +9,8 @@ export const ROUND_END = 'ROUND_END';
 
 export const SETTINGS_CHANGE = 'SETTINGS_CHANGE';
 
+export const TUTORIAL_NEXT = 'TUTORIAL_NEXT';
+export const TUTORIAL_PREVIOUS = 'TUTORIAL_PREVIOUS';
+export const TUTORIAL_START = 'TUTORIAL_START';
+
 export const USER_ANSWERED = 'USER_ANSWERED';
