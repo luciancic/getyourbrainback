@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Court from '../court/Court';
+import { Redirect } from 'react-router-dom';
 import { startGame, endGame, cancelGame } from '../../actions/gameActions';
 import { startRound, endRound, answer, playAudio } from '../../actions/roundActions';
 
@@ -79,21 +80,23 @@ class Game extends Component {
         const positionsButtonColor = this.getFeedbackColor(feedback.positions);
         const lettersButtonColor = this.getFeedbackColor(feedback.letters);
         
-        return <Court 
-            audioPlayed={audioPlayed}
-            gameRunning={gameRunning}
-            letters={letters}
-            lettersButtonColor={lettersButtonColor}
-            lettersHandler={this.props.answer.bind(this, 'letters')}
-            maxRounds={maxRounds}
-            n={n}
-            playAudio={this.props.playAudio}
-            positions={positions}
-            positionHandler={this.props.answer.bind(this, 'positions')}
-            positionsButtonColor={positionsButtonColor}
-            remainingRounds={remainingRounds}
-            roundActive={roundActive}
-        />
+        return <div>
+            <Court 
+                audioPlayed={audioPlayed}
+                letters={letters}
+                lettersButtonColor={lettersButtonColor}
+                lettersHandler={this.props.answer.bind(this, 'letters')}
+                maxRounds={maxRounds}
+                n={n}
+                playAudio={this.props.playAudio}
+                positions={positions}
+                positionHandler={this.props.answer.bind(this, 'positions')}
+                positionsButtonColor={positionsButtonColor}
+                remainingRounds={remainingRounds}
+                roundActive={roundActive}
+            />
+            { gameRunning ?  null : <Redirect to="/" /> }    
+        </div>
     }
 }
 

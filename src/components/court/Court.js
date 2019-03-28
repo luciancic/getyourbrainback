@@ -1,6 +1,5 @@
 // Component shared across Game and Tutorial
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import IndicatorBar from './IndicatorBar';
 import Letters from './Letters';
 import MatchButton from './MatchButton';
@@ -13,8 +12,6 @@ class Court extends Component {
     render() {
         const { 
             audioPlayed, 
-            gameRunning,
-            isTutorial, 
             letters, 
             lettersButtonColor,
             maxRounds, 
@@ -39,7 +36,6 @@ class Court extends Component {
                 <button className={`btn ${lettersButtonColor} lighten-4 blue-text text-darken-4`}>Match Letter</button> */}
             </div>
             <Letters roundActive={roundActive} currentLetter={letters[0]} audioPlayed={audioPlayed} playAudio={playAudio}/>
-            { gameRunning || isTutorial ?  null : <Redirect to="/" /> }
         </div>
     }
 }
