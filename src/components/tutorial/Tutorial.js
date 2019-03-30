@@ -24,9 +24,10 @@
 // 7th page: "Pro tips"
 
 import React, { Component } from 'react';
+import { Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 import Court from '../court/Court';
-import { startTutorial, nextTutorial, previousTutorial } from '../../actions/tutorialActions';
+import { startTutorial, exitTutorial, nextTutorial, previousTutorial } from '../../actions/tutorialActions';
 
 import "./Tutorial.css";
 
@@ -41,9 +42,9 @@ class Tutorial extends Component {
                 <h1>Intro</h1>
                 <p><em>Get your brain back!</em> is a memory game where you need to remember the positions of the circles and the letters you hear. In this tutorial, you will get familiar with rounds, n, and matching.</p>
                 <div className="tutorial-buttons">
-                    <button>Back</button>
-                    <button>Next</button>
-                    <button>Quit</button>
+                    <button onClick={this.props.previousTutorial} className="btn">Back</button>
+                    <button onClick={this.props.nextTutorial} className="btn">Next</button>
+                    <button onClick={this.props.exitTutorial} className="btn">Quit</button>
                 </div>
             </section>
             <Court 
@@ -53,6 +54,7 @@ class Tutorial extends Component {
                 letters={[1]} 
                 positions={[1]} 
             />
+            { this.props.tutorial.running ? null : <Redirect to="/" /> }
         </div>
     }
 } 
@@ -63,6 +65,7 @@ function mapStateToProps({ tutorial }) {
 
 const actions = {
     startTutorial,
+    exitTutorial,
     nextTutorial,
     previousTutorial
 }
