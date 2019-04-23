@@ -31,7 +31,7 @@ import { startTutorial, exitTutorial, nextTutorial, previousTutorial } from '../
 
 import "./Tutorial.css";
 
-class Tutorial extends Component {
+export class Tutorial extends Component {
     componentDidMount() {
         startTutorial();
     }

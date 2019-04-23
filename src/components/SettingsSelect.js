@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { changeSettings } from "../actions/settingsActions";
 import M from 'materialize-css';
 
-class SettingsSelect extends Component {
+export class SettingsSelect extends Component {
     constructor(props) {
         super(props);
         this.handleSettingChange = this.handleSettingChange.bind(this);
@@ -43,4 +43,4 @@ class SettingsSelect extends Component {
 
 function mapStateToProps({ settings}) { return { settings } }
 
-export default connect ( mapStateToProps, { changeSettings })(SettingsSelect)
+export default connect( mapStateToProps, { changeSettings })(SettingsSelect)

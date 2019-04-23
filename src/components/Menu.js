@@ -5,7 +5,7 @@ import { startGame} from '../actions/gameActions';
 import { startTutorial } from '../actions/tutorialActions';
 import './Menu.css';
 
-class Menu extends Component {
+export class Menu extends Component {
     render() {
         return <div id='menu' className='center'>
             <section id='menu-text'>

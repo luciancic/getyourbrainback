@@ -12,7 +12,7 @@ const durationOptions = [ 1000, 1500, 2000, 2500, 3000, 3500 ];
 
 
 
-class Settings extends Component {
+export class Settings extends Component {
     render() {
         return <div className='container center'>
             <h1>Settings</h1>

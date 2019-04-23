@@ -8,7 +8,7 @@ import escapeable from '../escapeable';
 
 import './Court.css';
 
-class Court extends Component {
+export class Court extends Component {
     render() {
         const { 
             audioPlayed, 

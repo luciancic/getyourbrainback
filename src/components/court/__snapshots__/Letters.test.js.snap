@@ -1,0 +1,359 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Letters 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <_default />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Letter
+          number={1}
+        />,
+        <Letter
+          number={2}
+        />,
+        <Letter
+          number={3}
+        />,
+        <Letter
+          number={4}
+        />,
+        <Letter
+          number={5}
+        />,
+        <Letter
+          number={6}
+        />,
+        <Letter
+          number={7}
+        />,
+        <Letter
+          number={8}
+        />,
+        <Letter
+          number={9}
+        />,
+      ],
+      "id": "letters",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "class",
+        "props": Object {
+          "audioShouldPlay": undefined,
+          "number": 1,
+          "playAudio": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "class",
+        "props": Object {
+          "audioShouldPlay": undefined,
+          "number": 2,
+          "playAudio": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "3",
+        "nodeType": "class",
+        "props": Object {
+          "audioShouldPlay": undefined,
+          "number": 3,
+          "playAudio": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "4",
+        "nodeType": "class",
+        "props": Object {
+          "audioShouldPlay": undefined,
+          "number": 4,
+          "playAudio": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "5",
+        "nodeType": "class",
+        "props": Object {
+          "audioShouldPlay": undefined,
+          "number": 5,
+          "playAudio": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "6",
+        "nodeType": "class",
+        "props": Object {
+          "audioShouldPlay": undefined,
+          "number": 6,
+          "playAudio": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "7",
+        "nodeType": "class",
+        "props": Object {
+          "audioShouldPlay": undefined,
+          "number": 7,
+          "playAudio": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "8",
+        "nodeType": "class",
+        "props": Object {
+          "audioShouldPlay": undefined,
+          "number": 8,
+          "playAudio": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "9",
+        "nodeType": "class",
+        "props": Object {
+          "audioShouldPlay": undefined,
+          "number": 9,
+          "playAudio": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Letter
+            number={1}
+          />,
+          <Letter
+            number={2}
+          />,
+          <Letter
+            number={3}
+          />,
+          <Letter
+            number={4}
+          />,
+          <Letter
+            number={5}
+          />,
+          <Letter
+            number={6}
+          />,
+          <Letter
+            number={7}
+          />,
+          <Letter
+            number={8}
+          />,
+          <Letter
+            number={9}
+          />,
+        ],
+        "id": "letters",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "class",
+          "props": Object {
+            "audioShouldPlay": undefined,
+            "number": 1,
+            "playAudio": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "class",
+          "props": Object {
+            "audioShouldPlay": undefined,
+            "number": 2,
+            "playAudio": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "3",
+          "nodeType": "class",
+          "props": Object {
+            "audioShouldPlay": undefined,
+            "number": 3,
+            "playAudio": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "4",
+          "nodeType": "class",
+          "props": Object {
+            "audioShouldPlay": undefined,
+            "number": 4,
+            "playAudio": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "5",
+          "nodeType": "class",
+          "props": Object {
+            "audioShouldPlay": undefined,
+            "number": 5,
+            "playAudio": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "6",
+          "nodeType": "class",
+          "props": Object {
+            "audioShouldPlay": undefined,
+            "number": 6,
+            "playAudio": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "7",
+          "nodeType": "class",
+          "props": Object {
+            "audioShouldPlay": undefined,
+            "number": 7,
+            "playAudio": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "8",
+          "nodeType": "class",
+          "props": Object {
+            "audioShouldPlay": undefined,
+            "number": 8,
+            "playAudio": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "9",
+          "nodeType": "class",
+          "props": Object {
+            "audioShouldPlay": undefined,
+            "number": 9,
+            "playAudio": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

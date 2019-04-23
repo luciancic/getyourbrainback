@@ -1,7 +1,7 @@
 import React from 'react';
 import escapeable from './escapeable';
 
-const Results = () => {
+export const Results = () => {
     return <h1>Results</h1>
 }
 
