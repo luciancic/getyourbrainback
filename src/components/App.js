@@ -12,9 +12,6 @@ import store from '../store';
 
 class App extends Component {
   render() {
-    // For quick dev testing only, remove later!
-    window.store = store;
-
     return <BrowserRouter>
       <div>
         <Route exact path='/' component={Menu}/>
