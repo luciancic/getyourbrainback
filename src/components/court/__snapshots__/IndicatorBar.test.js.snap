@@ -3,7 +3,11 @@
 exports[`renders IndicatorBar 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <_default />,
+  Symbol(enzyme.__unrendered__): <_default
+    maxRounds={20}
+    n={2}
+    remainingRounds={22}
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -23,11 +27,21 @@ ShallowWrapper {
           displaySide="left"
         >
           Remaining rounds: 
+          <span>
+            20
+            <span
+              className="green-text"
+            >
+               + 
+              2
+            </span>
+          </span>
         </Indicator>,
         <Indicator
           displaySide="right"
         >
           N: 
+          2
         </Indicator>,
       ],
     },
@@ -40,14 +54,60 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             "Remaining rounds: ",
-            undefined,
+            <span>
+              20
+              <span
+                className="green-text"
+              >
+                 + 
+                2
+              </span>
+            </span>,
           ],
           "displaySide": "left",
         },
         "ref": null,
         "rendered": Array [
           "Remaining rounds: ",
-          undefined,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                20,
+                <span
+                  className="green-text"
+                >
+                   + 
+                  2
+                </span>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              20,
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    " + ",
+                    2,
+                  ],
+                  "className": "green-text",
+                },
+                "ref": null,
+                "rendered": Array [
+                  " + ",
+                  2,
+                ],
+                "type": "span",
+              },
+            ],
+            "type": "span",
+          },
         ],
         "type": [Function],
       },
@@ -58,14 +118,14 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             "N: ",
-            undefined,
+            2,
           ],
           "displaySide": "right",
         },
         "ref": null,
         "rendered": Array [
           "N: ",
-          undefined,
+          2,
         ],
         "type": [Function],
       },
@@ -83,11 +143,21 @@ ShallowWrapper {
             displaySide="left"
           >
             Remaining rounds: 
+            <span>
+              20
+              <span
+                className="green-text"
+              >
+                 + 
+                2
+              </span>
+            </span>
           </Indicator>,
           <Indicator
             displaySide="right"
           >
             N: 
+            2
           </Indicator>,
         ],
       },
@@ -100,14 +170,60 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               "Remaining rounds: ",
-              undefined,
+              <span>
+                20
+                <span
+                  className="green-text"
+                >
+                   + 
+                  2
+                </span>
+              </span>,
             ],
             "displaySide": "left",
           },
           "ref": null,
           "rendered": Array [
             "Remaining rounds: ",
-            undefined,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  20,
+                  <span
+                    className="green-text"
+                  >
+                     + 
+                    2
+                  </span>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                20,
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " + ",
+                      2,
+                    ],
+                    "className": "green-text",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " + ",
+                    2,
+                  ],
+                  "type": "span",
+                },
+              ],
+              "type": "span",
+            },
           ],
           "type": [Function],
         },
@@ -118,14 +234,14 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               "N: ",
-              undefined,
+              2,
             ],
             "displaySide": "right",
           },
           "ref": null,
           "rendered": Array [
             "N: ",
-            undefined,
+            2,
           ],
           "type": [Function],
         },

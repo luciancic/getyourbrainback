@@ -3,7 +3,10 @@
 exports[`renders PositionBoard 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <_default />,
+  Symbol(enzyme.__unrendered__): <_default
+    active={true}
+    currentPosition={2}
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -19,15 +22,33 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <_default />,
-        <_default />,
-        <_default />,
-        <_default />,
-        <_default />,
-        <_default />,
-        <_default />,
-        <_default />,
-        <_default />,
+        <_default
+          active={false}
+        />,
+        <_default
+          active={true}
+        />,
+        <_default
+          active={false}
+        />,
+        <_default
+          active={false}
+        />,
+        <_default
+          active={false}
+        />,
+        <_default
+          active={false}
+        />,
+        <_default
+          active={false}
+        />,
+        <_default
+          active={false}
+        />,
+        <_default
+          active={false}
+        />,
       ],
       "className": "teal lighten-5 position-board",
     },
@@ -38,7 +59,7 @@ ShallowWrapper {
         "key": "1",
         "nodeType": "function",
         "props": Object {
-          "active": undefined,
+          "active": false,
         },
         "ref": null,
         "rendered": null,
@@ -49,7 +70,7 @@ ShallowWrapper {
         "key": "2",
         "nodeType": "function",
         "props": Object {
-          "active": undefined,
+          "active": true,
         },
         "ref": null,
         "rendered": null,
@@ -60,7 +81,7 @@ ShallowWrapper {
         "key": "3",
         "nodeType": "function",
         "props": Object {
-          "active": undefined,
+          "active": false,
         },
         "ref": null,
         "rendered": null,
@@ -71,7 +92,7 @@ ShallowWrapper {
         "key": "4",
         "nodeType": "function",
         "props": Object {
-          "active": undefined,
+          "active": false,
         },
         "ref": null,
         "rendered": null,
@@ -82,7 +103,7 @@ ShallowWrapper {
         "key": "5",
         "nodeType": "function",
         "props": Object {
-          "active": undefined,
+          "active": false,
         },
         "ref": null,
         "rendered": null,
@@ -93,7 +114,7 @@ ShallowWrapper {
         "key": "6",
         "nodeType": "function",
         "props": Object {
-          "active": undefined,
+          "active": false,
         },
         "ref": null,
         "rendered": null,
@@ -104,7 +125,7 @@ ShallowWrapper {
         "key": "7",
         "nodeType": "function",
         "props": Object {
-          "active": undefined,
+          "active": false,
         },
         "ref": null,
         "rendered": null,
@@ -115,7 +136,7 @@ ShallowWrapper {
         "key": "8",
         "nodeType": "function",
         "props": Object {
-          "active": undefined,
+          "active": false,
         },
         "ref": null,
         "rendered": null,
@@ -126,7 +147,7 @@ ShallowWrapper {
         "key": "9",
         "nodeType": "function",
         "props": Object {
-          "active": undefined,
+          "active": false,
         },
         "ref": null,
         "rendered": null,
@@ -142,15 +163,33 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <_default />,
-          <_default />,
-          <_default />,
-          <_default />,
-          <_default />,
-          <_default />,
-          <_default />,
-          <_default />,
-          <_default />,
+          <_default
+            active={false}
+          />,
+          <_default
+            active={true}
+          />,
+          <_default
+            active={false}
+          />,
+          <_default
+            active={false}
+          />,
+          <_default
+            active={false}
+          />,
+          <_default
+            active={false}
+          />,
+          <_default
+            active={false}
+          />,
+          <_default
+            active={false}
+          />,
+          <_default
+            active={false}
+          />,
         ],
         "className": "teal lighten-5 position-board",
       },
@@ -161,7 +200,7 @@ ShallowWrapper {
           "key": "1",
           "nodeType": "function",
           "props": Object {
-            "active": undefined,
+            "active": false,
           },
           "ref": null,
           "rendered": null,
@@ -172,7 +211,7 @@ ShallowWrapper {
           "key": "2",
           "nodeType": "function",
           "props": Object {
-            "active": undefined,
+            "active": true,
           },
           "ref": null,
           "rendered": null,
@@ -183,7 +222,7 @@ ShallowWrapper {
           "key": "3",
           "nodeType": "function",
           "props": Object {
-            "active": undefined,
+            "active": false,
           },
           "ref": null,
           "rendered": null,
@@ -194,7 +233,7 @@ ShallowWrapper {
           "key": "4",
           "nodeType": "function",
           "props": Object {
-            "active": undefined,
+            "active": false,
           },
           "ref": null,
           "rendered": null,
@@ -205,7 +244,7 @@ ShallowWrapper {
           "key": "5",
           "nodeType": "function",
           "props": Object {
-            "active": undefined,
+            "active": false,
           },
           "ref": null,
           "rendered": null,
@@ -216,7 +255,7 @@ ShallowWrapper {
           "key": "6",
           "nodeType": "function",
           "props": Object {
-            "active": undefined,
+            "active": false,
           },
           "ref": null,
           "rendered": null,
@@ -227,7 +266,7 @@ ShallowWrapper {
           "key": "7",
           "nodeType": "function",
           "props": Object {
-            "active": undefined,
+            "active": false,
           },
           "ref": null,
           "rendered": null,
@@ -238,7 +277,7 @@ ShallowWrapper {
           "key": "8",
           "nodeType": "function",
           "props": Object {
-            "active": undefined,
+            "active": false,
           },
           "ref": null,
           "rendered": null,
@@ -249,7 +288,7 @@ ShallowWrapper {
           "key": "9",
           "nodeType": "function",
           "props": Object {
-            "active": undefined,
+            "active": false,
           },
           "ref": null,
           "rendered": null,

@@ -3,7 +3,11 @@
 exports[`renders Letters 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <_default />,
+  Symbol(enzyme.__unrendered__): <_default
+    audioPlayed={true}
+    currentLetter={4}
+    roundActive={false}
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -20,30 +24,39 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Letter
+          audioShouldPlay={false}
           number={1}
         />,
         <Letter
+          audioShouldPlay={false}
           number={2}
         />,
         <Letter
+          audioShouldPlay={false}
           number={3}
         />,
         <Letter
+          audioShouldPlay={false}
           number={4}
         />,
         <Letter
+          audioShouldPlay={false}
           number={5}
         />,
         <Letter
+          audioShouldPlay={false}
           number={6}
         />,
         <Letter
+          audioShouldPlay={false}
           number={7}
         />,
         <Letter
+          audioShouldPlay={false}
           number={8}
         />,
         <Letter
+          audioShouldPlay={false}
           number={9}
         />,
       ],
@@ -56,7 +69,7 @@ ShallowWrapper {
         "key": "1",
         "nodeType": "class",
         "props": Object {
-          "audioShouldPlay": undefined,
+          "audioShouldPlay": false,
           "number": 1,
           "playAudio": undefined,
         },
@@ -69,7 +82,7 @@ ShallowWrapper {
         "key": "2",
         "nodeType": "class",
         "props": Object {
-          "audioShouldPlay": undefined,
+          "audioShouldPlay": false,
           "number": 2,
           "playAudio": undefined,
         },
@@ -82,7 +95,7 @@ ShallowWrapper {
         "key": "3",
         "nodeType": "class",
         "props": Object {
-          "audioShouldPlay": undefined,
+          "audioShouldPlay": false,
           "number": 3,
           "playAudio": undefined,
         },
@@ -95,7 +108,7 @@ ShallowWrapper {
         "key": "4",
         "nodeType": "class",
         "props": Object {
-          "audioShouldPlay": undefined,
+          "audioShouldPlay": false,
           "number": 4,
           "playAudio": undefined,
         },
@@ -108,7 +121,7 @@ ShallowWrapper {
         "key": "5",
         "nodeType": "class",
         "props": Object {
-          "audioShouldPlay": undefined,
+          "audioShouldPlay": false,
           "number": 5,
           "playAudio": undefined,
         },
@@ -121,7 +134,7 @@ ShallowWrapper {
         "key": "6",
         "nodeType": "class",
         "props": Object {
-          "audioShouldPlay": undefined,
+          "audioShouldPlay": false,
           "number": 6,
           "playAudio": undefined,
         },
@@ -134,7 +147,7 @@ ShallowWrapper {
         "key": "7",
         "nodeType": "class",
         "props": Object {
-          "audioShouldPlay": undefined,
+          "audioShouldPlay": false,
           "number": 7,
           "playAudio": undefined,
         },
@@ -147,7 +160,7 @@ ShallowWrapper {
         "key": "8",
         "nodeType": "class",
         "props": Object {
-          "audioShouldPlay": undefined,
+          "audioShouldPlay": false,
           "number": 8,
           "playAudio": undefined,
         },
@@ -160,7 +173,7 @@ ShallowWrapper {
         "key": "9",
         "nodeType": "class",
         "props": Object {
-          "audioShouldPlay": undefined,
+          "audioShouldPlay": false,
           "number": 9,
           "playAudio": undefined,
         },
@@ -179,30 +192,39 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Letter
+            audioShouldPlay={false}
             number={1}
           />,
           <Letter
+            audioShouldPlay={false}
             number={2}
           />,
           <Letter
+            audioShouldPlay={false}
             number={3}
           />,
           <Letter
+            audioShouldPlay={false}
             number={4}
           />,
           <Letter
+            audioShouldPlay={false}
             number={5}
           />,
           <Letter
+            audioShouldPlay={false}
             number={6}
           />,
           <Letter
+            audioShouldPlay={false}
             number={7}
           />,
           <Letter
+            audioShouldPlay={false}
             number={8}
           />,
           <Letter
+            audioShouldPlay={false}
             number={9}
           />,
         ],
@@ -215,7 +237,7 @@ ShallowWrapper {
           "key": "1",
           "nodeType": "class",
           "props": Object {
-            "audioShouldPlay": undefined,
+            "audioShouldPlay": false,
             "number": 1,
             "playAudio": undefined,
           },
@@ -228,7 +250,7 @@ ShallowWrapper {
           "key": "2",
           "nodeType": "class",
           "props": Object {
-            "audioShouldPlay": undefined,
+            "audioShouldPlay": false,
             "number": 2,
             "playAudio": undefined,
           },
@@ -241,7 +263,7 @@ ShallowWrapper {
           "key": "3",
           "nodeType": "class",
           "props": Object {
-            "audioShouldPlay": undefined,
+            "audioShouldPlay": false,
             "number": 3,
             "playAudio": undefined,
           },
@@ -254,7 +276,7 @@ ShallowWrapper {
           "key": "4",
           "nodeType": "class",
           "props": Object {
-            "audioShouldPlay": undefined,
+            "audioShouldPlay": false,
             "number": 4,
             "playAudio": undefined,
           },
@@ -267,7 +289,7 @@ ShallowWrapper {
           "key": "5",
           "nodeType": "class",
           "props": Object {
-            "audioShouldPlay": undefined,
+            "audioShouldPlay": false,
             "number": 5,
             "playAudio": undefined,
           },
@@ -280,7 +302,7 @@ ShallowWrapper {
           "key": "6",
           "nodeType": "class",
           "props": Object {
-            "audioShouldPlay": undefined,
+            "audioShouldPlay": false,
             "number": 6,
             "playAudio": undefined,
           },
@@ -293,7 +315,7 @@ ShallowWrapper {
           "key": "7",
           "nodeType": "class",
           "props": Object {
-            "audioShouldPlay": undefined,
+            "audioShouldPlay": false,
             "number": 7,
             "playAudio": undefined,
           },
@@ -306,7 +328,7 @@ ShallowWrapper {
           "key": "8",
           "nodeType": "class",
           "props": Object {
-            "audioShouldPlay": undefined,
+            "audioShouldPlay": false,
             "number": 8,
             "playAudio": undefined,
           },
@@ -319,7 +341,7 @@ ShallowWrapper {
           "key": "9",
           "nodeType": "class",
           "props": Object {
-            "audioShouldPlay": undefined,
+            "audioShouldPlay": false,
             "number": 9,
             "playAudio": undefined,
           },
