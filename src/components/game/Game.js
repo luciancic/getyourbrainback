@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Court from '../court/Court';
-import { Redirect } from 'react-router-dom';
-import { startGame, endGame, cancelGame } from '../../actions/gameActions';
+import { endGame, cancelGame } from '../../actions/gameActions';
 import { startRound, endRound, answer, playAudio } from '../../actions/roundActions';
 import { getFeedbackColor } from '../../utils';
 
@@ -71,23 +70,21 @@ export class Game extends Component {
         const positionsButtonColor = getFeedbackColor(feedback.positions);
         const lettersButtonColor = getFeedbackColor(feedback.letters);
         
-        return <div>
-            <Court 
-                audioPlayed={audioPlayed}
-                letters={letters}
-                lettersButtonColor={lettersButtonColor}
-                lettersHandler={this.props.answer.bind(this, 'letters')}
-                maxRounds={maxRounds}
-                n={n}
-                playAudio={this.props.playAudio}
-                positions={positions}
-                positionHandler={this.props.answer.bind(this, 'positions')}
-                positionsButtonColor={positionsButtonColor}
-                remainingRounds={remainingRounds}
-                roundActive={roundActive}
-            />
-            { gameRunning ?  null : <Redirect to="/" /> }    
-        </div>
+        return <Court 
+            audioPlayed={audioPlayed}
+            letters={letters}
+            lettersButtonColor={lettersButtonColor}
+            lettersHandler={this.props.answer.bind(this, 'letters')}
+            maxRounds={maxRounds}
+            n={n}
+            playAudio={this.props.playAudio}
+            positions={positions}
+            positionHandler={this.props.answer.bind(this, 'positions')}
+            positionsButtonColor={positionsButtonColor}
+            remainingRounds={remainingRounds}
+            roundActive={roundActive}
+            shouldRedirect={!gameRunning}
+        />
     }
 }
 
@@ -97,7 +94,6 @@ function mapStateToProps({ settings, game, feedback, audioPlayed }) {
 
 const actions = {
     answer,
-    startGame, 
     endGame, 
     cancelGame,
     startRound,

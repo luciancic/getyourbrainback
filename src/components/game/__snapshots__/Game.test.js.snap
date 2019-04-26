@@ -21,115 +21,49 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
-      "children": Array [
-        <escapeable
-          lettersHandler={[Function]}
-          positionHandler={[Function]}
-          remainingRounds={NaN}
-        />,
-        <Redirect
-          push={false}
-          to="/"
-        />,
-      ],
+      "audioPlayed": undefined,
+      "letters": undefined,
+      "lettersButtonColor": undefined,
+      "lettersHandler": [Function],
+      "maxRounds": undefined,
+      "n": undefined,
+      "playAudio": undefined,
+      "positionHandler": [Function],
+      "positions": undefined,
+      "positionsButtonColor": undefined,
+      "remainingRounds": NaN,
+      "roundActive": undefined,
+      "shouldRedirect": true,
     },
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "audioPlayed": undefined,
-          "letters": undefined,
-          "lettersButtonColor": undefined,
-          "lettersHandler": [Function],
-          "maxRounds": undefined,
-          "n": undefined,
-          "playAudio": undefined,
-          "positionHandler": [Function],
-          "positions": undefined,
-          "positionsButtonColor": undefined,
-          "remainingRounds": NaN,
-          "roundActive": undefined,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "push": false,
-          "to": "/",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-    ],
-    "type": "div",
+    "rendered": null,
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
-        "children": Array [
-          <escapeable
-            lettersHandler={[Function]}
-            positionHandler={[Function]}
-            remainingRounds={NaN}
-          />,
-          <Redirect
-            push={false}
-            to="/"
-          />,
-        ],
+        "audioPlayed": undefined,
+        "letters": undefined,
+        "lettersButtonColor": undefined,
+        "lettersHandler": [Function],
+        "maxRounds": undefined,
+        "n": undefined,
+        "playAudio": undefined,
+        "positionHandler": [Function],
+        "positions": undefined,
+        "positionsButtonColor": undefined,
+        "remainingRounds": NaN,
+        "roundActive": undefined,
+        "shouldRedirect": true,
       },
       "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "audioPlayed": undefined,
-            "letters": undefined,
-            "lettersButtonColor": undefined,
-            "lettersHandler": [Function],
-            "maxRounds": undefined,
-            "n": undefined,
-            "playAudio": undefined,
-            "positionHandler": [Function],
-            "positions": undefined,
-            "positionsButtonColor": undefined,
-            "remainingRounds": NaN,
-            "roundActive": undefined,
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "push": false,
-            "to": "/",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-      ],
-      "type": "div",
+      "rendered": null,
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

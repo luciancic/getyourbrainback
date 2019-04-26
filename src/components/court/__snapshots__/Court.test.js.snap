@@ -35,6 +35,7 @@ ShallowWrapper {
           />
         </div>,
         <_default />,
+        null,
       ],
       "className": "court",
     },
@@ -125,6 +126,7 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
+      null,
     ],
     "type": "div",
   },
@@ -148,6 +150,7 @@ ShallowWrapper {
             />
           </div>,
           <_default />,
+          null,
         ],
         "className": "court",
       },
@@ -238,6 +241,7 @@ ShallowWrapper {
           "rendered": null,
           "type": [Function],
         },
+        null,
       ],
       "type": "div",
     },
