@@ -4,6 +4,7 @@ import Court from '../court/Court';
 import { Redirect } from 'react-router-dom';
 import { startGame, endGame, cancelGame } from '../../actions/gameActions';
 import { startRound, endRound, answer, playAudio } from '../../actions/roundActions';
+import { getFeedbackColor } from '../../utils';
 
 export class Game extends Component {
     componentDidMount() {
@@ -62,23 +63,13 @@ export class Game extends Component {
         }, duration);
     }
 
-    getFeedbackColor(feedback) {
-        switch (feedback) {
-            case null: return 'white';
-            case 'correct': return 'green';
-            case 'mistake': return 'red';
-            case 'missed': return 'blue';
-            default: break;
-        }
-    }
-
     render() {
         const { audioPlayed, game, settings, feedback } = this.props;
         const { n, maxRounds } = settings;
         const { gameRunning, roundActive, currentRound, positions, letters } = game;
         const remainingRounds = maxRounds - currentRound + n + 1;
-        const positionsButtonColor = this.getFeedbackColor(feedback.positions);
-        const lettersButtonColor = this.getFeedbackColor(feedback.letters);
+        const positionsButtonColor = getFeedbackColor(feedback.positions);
+        const lettersButtonColor = getFeedbackColor(feedback.letters);
         
         return <div>
             <Court 
