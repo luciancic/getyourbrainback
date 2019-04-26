@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Court from '../court/Court';
-import { endGame, cancelGame } from '../../actions/gameActions';
-import { startRound, endRound, answer, playAudio } from '../../actions/roundActions';
-import { getFeedbackColor } from '../../utils';
+import Court from './court/Court';
+import { getFeedbackColor } from '../utils';
 
 export class Game extends Component {
     componentDidMount() {
@@ -88,17 +85,4 @@ export class Game extends Component {
     }
 }
 
-function mapStateToProps({ settings, game, feedback, audioPlayed }) {
-    return { settings, game, feedback, audioPlayed }
-}
-
-const actions = {
-    answer,
-    endGame, 
-    cancelGame,
-    startRound,
-    endRound,
-    playAudio
-}
-
-export default connect(mapStateToProps, actions)(Game)
+export default Game;

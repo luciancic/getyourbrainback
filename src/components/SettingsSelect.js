@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { changeSettings } from "../actions/settingsActions";
 import M from 'materialize-css';
 
 export class SettingsSelect extends Component {
-    constructor(props) {
-        super(props);
-        this.handleSettingChange = this.handleSettingChange.bind(this);
-    }
-    
     componentDidMount() {
         const elems = document.querySelectorAll('select');
         this.selectElemsInstances = M.FormSelect.init(elems, {});
     }
 
-    handleSettingChange(e) {
+    handleSettingChange = (e) => {
         this.props.changeSettings({ [e.target.name]: Number(e.target.value) });
     }
 
@@ -31,16 +24,15 @@ export class SettingsSelect extends Component {
 
     render() {
         let { name, options, settings } = this.props;
+        const defaultValue = settings[name];
+        options = options[name];
         
-        const selected = settings[name];
         return <div  className='input-field'>
-            <select style={{ borderColor: 'black' }} name={name} defaultValue={selected} onChange={this.handleSettingChange}>
+            <select style={{ borderColor: 'black' }} name={name} defaultValue={defaultValue} onChange={this.handleSettingChange}>
                 { this.renderOptions(name, options) }
             </select>
         </div>
     }
 }
 
-function mapStateToProps({ settings}) { return { settings } }
-
-export default connect( mapStateToProps, { changeSettings })(SettingsSelect)
+export default SettingsSelect

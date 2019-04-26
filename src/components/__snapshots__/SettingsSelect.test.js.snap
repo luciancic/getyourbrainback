@@ -4,8 +4,22 @@ exports[`renders SettingsSelect 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <SettingsSelect
-    options={Array []}
-    settings={Object {}}
+    changeSettings={[MockFunction]}
+    name="n"
+    options={
+      Object {
+        "n": Array [
+          2,
+          3,
+          4,
+        ],
+      }
+    }
+    settings={
+      Object {
+        "n": 2,
+      }
+    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -22,13 +36,31 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": <select
+        defaultValue={2}
+        name="n"
         onChange={[Function]}
         style={
           Object {
             "borderColor": "black",
           }
         }
-      />,
+      >
+        <option
+          value={2}
+        >
+          2
+        </option>
+        <option
+          value={3}
+        >
+          3
+        </option>
+        <option
+          value={4}
+        >
+          4
+        </option>
+      </select>,
       "className": "input-field",
     },
     "ref": null,
@@ -37,16 +69,69 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": Array [],
-        "defaultValue": undefined,
-        "name": undefined,
+        "children": Array [
+          <option
+            value={2}
+          >
+            2
+          </option>,
+          <option
+            value={3}
+          >
+            3
+          </option>,
+          <option
+            value={4}
+          >
+            4
+          </option>,
+        ],
+        "defaultValue": 2,
+        "name": "n",
         "onChange": [Function],
         "style": Object {
           "borderColor": "black",
         },
       },
       "ref": null,
-      "rendered": Array [],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "host",
+          "props": Object {
+            "children": 2,
+            "value": 2,
+          },
+          "ref": null,
+          "rendered": 2,
+          "type": "option",
+        },
+        Object {
+          "instance": null,
+          "key": "3",
+          "nodeType": "host",
+          "props": Object {
+            "children": 3,
+            "value": 3,
+          },
+          "ref": null,
+          "rendered": 3,
+          "type": "option",
+        },
+        Object {
+          "instance": null,
+          "key": "4",
+          "nodeType": "host",
+          "props": Object {
+            "children": 4,
+            "value": 4,
+          },
+          "ref": null,
+          "rendered": 4,
+          "type": "option",
+        },
+      ],
       "type": "select",
     },
     "type": "div",
@@ -58,13 +143,31 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": <select
+          defaultValue={2}
+          name="n"
           onChange={[Function]}
           style={
             Object {
               "borderColor": "black",
             }
           }
-        />,
+        >
+          <option
+            value={2}
+          >
+            2
+          </option>
+          <option
+            value={3}
+          >
+            3
+          </option>
+          <option
+            value={4}
+          >
+            4
+          </option>
+        </select>,
         "className": "input-field",
       },
       "ref": null,
@@ -73,16 +176,69 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": Array [],
-          "defaultValue": undefined,
-          "name": undefined,
+          "children": Array [
+            <option
+              value={2}
+            >
+              2
+            </option>,
+            <option
+              value={3}
+            >
+              3
+            </option>,
+            <option
+              value={4}
+            >
+              4
+            </option>,
+          ],
+          "defaultValue": 2,
+          "name": "n",
           "onChange": [Function],
           "style": Object {
             "borderColor": "black",
           },
         },
         "ref": null,
-        "rendered": Array [],
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "2",
+            "nodeType": "host",
+            "props": Object {
+              "children": 2,
+              "value": 2,
+            },
+            "ref": null,
+            "rendered": 2,
+            "type": "option",
+          },
+          Object {
+            "instance": null,
+            "key": "3",
+            "nodeType": "host",
+            "props": Object {
+              "children": 3,
+              "value": 3,
+            },
+            "ref": null,
+            "rendered": 3,
+            "type": "option",
+          },
+          Object {
+            "instance": null,
+            "key": "4",
+            "nodeType": "host",
+            "props": Object {
+              "children": 4,
+              "value": 4,
+            },
+            "ref": null,
+            "rendered": 4,
+            "type": "option",
+          },
+        ],
         "type": "select",
       },
       "type": "div",

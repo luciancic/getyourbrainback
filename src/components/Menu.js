@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { startGame} from '../actions/gameActions';
-import { startTutorial } from '../actions/tutorialActions';
 import './Menu.css';
 
 export class Menu extends Component {
@@ -21,4 +18,4 @@ export class Menu extends Component {
     }
 }
 
-export default connect(null, { startGame, startTutorial })(Menu);
+export default Menu;

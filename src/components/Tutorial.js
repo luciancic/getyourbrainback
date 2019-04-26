@@ -25,17 +25,11 @@
 
 import React, { Component } from 'react';
 import { Redirect } from "react-router-dom";
-import { connect } from 'react-redux';
-import Court from '../court/Court';
-import { startTutorial, exitTutorial, nextTutorial, previousTutorial } from '../../actions/tutorialActions';
+import Court from './court/Court';
 
 import "./Tutorial.css";
 
 export class Tutorial extends Component {
-    componentDidMount() {
-        startTutorial();
-    }
-
     render() {
         return <div className="tutorial">
             <section className="tutorial-info">
@@ -59,15 +53,4 @@ export class Tutorial extends Component {
     }
 } 
 
-function mapStateToProps({ tutorial }) {
-    return { tutorial }
-}
-
-const actions = {
-    startTutorial,
-    exitTutorial,
-    nextTutorial,
-    previousTutorial
-}
-
-export default connect(mapStateToProps, actions)(Tutorial)
+export default Tutorial
