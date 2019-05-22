@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from '../store';
+import Provider from '../context';
 import MenuContainer from './MenuContainer';
 import GameContainer from './GameContainer';
 import Results from '../components/Results';
@@ -12,7 +11,7 @@ import './App.css'; // Global styles
 
 export default class App extends Component {
   render() {
-    return <Provider store={store}>
+    return <Provider>
       <BrowserRouter>
         <div>
           <Route exact path='/' component={MenuContainer}/>
