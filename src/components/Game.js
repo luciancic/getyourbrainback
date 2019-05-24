@@ -1,88 +1,35 @@
-import React, { Component } from 'react';
-import Court from './court/Court';
-import { getFeedbackColor } from '../utils';
+import React, { Fragment, useContext, useState } from 'react'
+import { Redirect } from 'react-router-dom'
+import Court from './court/Court'
+import SettingsContext from '../context/SettingsContext'
+import { getRandomNumber } from '../utils';
 
-export class Game extends Component {
-    componentDidMount() {
-        const { endGame } = this.props;
-        const { gameRunning } = this.props.game;
-        const { duration, maxRounds, n } = this.props.settings;
-
-        // First round starts immediately.
-        if (gameRunning) this.playRound();
-
-        // Set up a round loop.
-        this.interval = setInterval(() => {
-            // Do not destructure currentRound because it needs to check value by reference.
-            if (this.props.game.currentRound === maxRounds + n) {
-                return endGame();
-            }
-            this.playRound();
-        }, duration + 300);
-
-        window.addEventListener('keydown', this.gameListener, false);
-    }
+export default function Game(props) {
+    const [settings] = useContext(SettingsContext)
+    const [gameOver, setGameOver] = useState(false)
+    const { n, maxRounds, duration } = settings
+    const letters = generateGameArray(maxRounds + n)
+    const positions = generateGameArray(maxRounds + n)
     
-    componentWillUnmount() {
-        const { game, cancelGame } = this.props;
-        
-        clearInterval(this.interval);
-        clearTimeout(this.timeout);
-        window.removeEventListener('keydown', this.gameListener, false);
-        
-        // In case component unmounts because of back navigation, we need to cancel manually.
-        if (game.gameRunning) { cancelGame() }
-    }
-    
-    gameListener = (e) => {
-        switch (e.key) {
-            case 'Escape':
-                this.props.cancelGame();
-                break;
-            case 'a':
-                this.props.answer('positions');
-                break;
-            case 'l':
-                this.props.answer('letters');
-                break;
-            default:
-                break;
-        }
-    }
-
-    playRound = () => {
-        const { startRound, endRound } = this.props;
-        const { duration } = this.props.settings;
-        startRound();
-        this.timeout = setTimeout(() => {
-            endRound();
-        }, duration);
-    }
-
-    render() {
-        const { audioPlayed, game, settings, feedback } = this.props;
-        const { n, maxRounds } = settings;
-        const { gameRunning, roundActive, currentRound, positions, letters } = game;
-        const remainingRounds = maxRounds - currentRound + n + 1;
-        const positionsButtonColor = getFeedbackColor(feedback.positions);
-        const lettersButtonColor = getFeedbackColor(feedback.letters);
-        
-        return <Court 
-            audioPlayed={audioPlayed}
+    return <Fragment>
+        <Court 
+            endGame={() => setGameOver(true)}
             letters={letters}
-            lettersButtonColor={lettersButtonColor}
-            lettersHandler={this.props.answer.bind(this, 'letters')}
+            duration={duration}
             maxRounds={maxRounds}
             n={n}
-            playAudio={this.props.playAudio}
             positions={positions}
-            positionHandler={this.props.answer.bind(this, 'positions')}
-            positionsButtonColor={positionsButtonColor}
-            remainingRounds={remainingRounds}
-            roundActive={roundActive}
-            shouldRedirect={!gameRunning}
         />
-    }
+        { gameOver && <Redirect to="/results" /> }
+    </Fragment>
 }
 
-export default Game;
+function generateGameArray(length) {
+    const arr = []
+
+    for (let i = 0; i < length; i++) {
+        arr[i] = getRandomNumber()
+    }
+
+    return arr
+}

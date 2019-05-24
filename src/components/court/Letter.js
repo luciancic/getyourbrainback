@@ -10,8 +10,8 @@ class Letter extends Component {
     componentDidUpdate() {
         if (this.props.audioShouldPlay) {
             // Calls action creator to mark audioPlayed piece of state as true.
-            this.props.playAudio();
             this.audioRef.current.play();
+            this.props.disableAudio();
         }
     }
 
