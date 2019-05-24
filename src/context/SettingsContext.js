@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import React, { createContext, useState } from 'react';
 
 const SettingsContext = createContext()
 
@@ -6,7 +6,7 @@ export default SettingsContext
 export function SettingsProvider(props) {
     // Get pre-recorded settings or use default
     // get from window.localStorage()
-    initialState = { 
+    const initialState = { 
         n: 2,
         maxRounds: 20,
         duration: 2000
