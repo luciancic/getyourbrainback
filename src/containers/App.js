@@ -4,8 +4,8 @@ import Provider from '../context';
 import Menu from '../components/Menu';
 import Game from '../components/Game';
 import Results from '../components/Results';
-import SettingsContainer from './SettingsContainer';
-import TutorialContainer from './TutorialContainer';
+import Settings from '../components/Settings';
+import Tutorial from '../components/Tutorial';
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css'; // Global styles
 
@@ -16,8 +16,8 @@ export default function App() {
         <Route exact path='/' component={Menu}/>
         <Route path='/game' component={Game}/>
         <Route path='/results' component={Results}/>
-        <Route path='/settings' component={SettingsContainer}/>
-        <Route path='/tutorial' component={TutorialContainer}/>
+        <Route path='/settings' component={Settings}/>
+        <Route path='/tutorial' component={Tutorial}/>
       </Fragment>
     </BrowserRouter>
   </Provider>
