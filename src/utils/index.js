@@ -27,7 +27,7 @@ export function overrideRandom() {
     return Math.random() < 0.25;
 }
 
-export function getFeedbackColor(feedback) {
+export function mapFeedbackColor(feedback) {
     switch (feedback) {
         case null: return 'white';
         case 'correct': return 'green';

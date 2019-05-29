@@ -1,19 +1,27 @@
 // Component shared across Game and Tutorial
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import IndicatorBar from './IndicatorBar';
-import Letters from './Letters';
-import MatchButton from './MatchButton';
-import PositionBoard from './PositionBoard';
-import escapeable from '../escapeable';
+import React, { Component } from 'react'
+import IndicatorBar from './IndicatorBar'
+import Letters from './Letters'
+import MatchButton from './MatchButton'
+import PositionBoard from './PositionBoard'
+import escapeable from '../escapeable'
+import { mapFeedbackColor } from '../../utils'
 
-import './Court.css';
+import './Court.css'
 
 export class Court extends Component {
     state = {
         canPlayAudio: false,
         currentRound: -1,
-        roundActive: false
+        isRoundActive: false,
+        feedback: {
+            letters: null,
+            positions: null
+        },
+        userAnswered: {
+            positions: false,
+            letters: false
+        }
     }
 
     componentDidMount() {
@@ -42,6 +50,54 @@ export class Court extends Component {
         clearTimeout(this.timeout);
         window.removeEventListener('keydown', this.gameListener, false);
     }
+
+    // Don't use this function directly. Rather, use its bound versions:
+    // checkPositions and checkLetters
+    checkAnswer = (stim) => { 
+        const { n } = this.props
+        const { currentRound, isRoundActive, userAnswered } = this.state
+
+        if (currentRound < n || !isRoundActive || userAnswered[stim]) return;
+        else {
+            let newState = { 
+                feedback: this.state.feedback, 
+                userAnswered: this.state.userAnswered
+            }
+            const arr = this.props[stim]
+            const isAnswerCorrect = arr[currentRound] === arr[currentRound - n]
+            
+            newState.feedback[stim] = isAnswerCorrect ? 'correct' : 'mistake'
+            newState.userAnswered[stim] = true
+            this.setState(newState)
+        }
+    }
+    checkPositions = this.checkAnswer.bind(this, 'positions')
+    checkLetters = this.checkAnswer.bind(this, 'letters')
+
+    checkMissed = () => {
+        const { n } = this.props
+        const { currentRound, userAnswered } = this.state
+        // debugger;
+        if (currentRound < n) return;
+        else {
+            checkFor.call(this, 'positions')
+            checkFor.call(this, 'letters')
+        }
+
+        function checkFor(stim) {
+            if (userAnswered[stim]) return;
+            else {
+                let newState = { feedback: this.state.feedback }
+                const arr = this.props[stim]
+                const isAnswerMissed = arr[currentRound] === arr[currentRound - n]
+                
+                if (isAnswerMissed) {
+                    newState.feedback[stim] = 'missed'
+                    this.setState(newState)
+                }
+            }
+        }
+    }
     
     gameListener = (e) => {
         switch (e.key) {
@@ -49,10 +105,10 @@ export class Court extends Component {
                 this.props.cancelGame();
                 break;
             case 'a':
-                this.props.answer('positions');
+                this.checkPositions();
                 break;
             case 'l':
-                this.props.answer('letters');
+                this.checkLetters();
                 break;
             default:
                 break;
@@ -65,10 +121,19 @@ export class Court extends Component {
         this.setState({ 
             canPlayAudio: true,
             currentRound: this.state.currentRound + 1,
-            roundActive: true
+            isRoundActive: true,
+            feedback: {
+                positions: null,
+                letters: null
+            },
+            userAnswered: {
+                positions: false,
+                letters: false
+            }
         })
         this.timeout = setTimeout(() => {
-            this.setState({ roundActive: false });
+            this.setState({ isRoundActive: false })
+            this.checkMissed()
         }, duration);
     }
 
@@ -76,26 +141,22 @@ export class Court extends Component {
     render() {
         const { 
             letters, 
-            lettersButtonColor,
-            lettersHandler,
             maxRounds, 
             n,
             positions, 
-            positionsButtonColor, 
-            positionHandler,
-            shouldRedirect 
         } = this.props
-        const { canPlayAudio, currentRound, roundActive } = this.state
+        const { canPlayAudio, currentRound, isRoundActive } = this.state
+        const positionsColor = mapFeedbackColor(this.state.feedback.positions)
+        const lettersColor = mapFeedbackColor(this.state.feedback.letters)
 
         return <div className="court">
             <IndicatorBar maxRounds={maxRounds} currentRound={currentRound} n={n} />
-            <PositionBoard active={roundActive} currentPosition={positions[this.state.currentRound]}/>
+            <PositionBoard active={isRoundActive} currentPosition={positions[currentRound]}/>
             <div className="court-buttons">
-                <MatchButton color={positionsButtonColor} name="Match Position" onClick={positionHandler}/>
-                <MatchButton color={lettersButtonColor} name="Match Letter" onClick={lettersHandler}/>
+                <MatchButton color={positionsColor} name="Match Position" onClick={this.checkPositions}/>
+                <MatchButton color={lettersColor} name="Match Letter" onClick={this.checkLetters}/>
             </div>
-            <Letters active={roundActive} currentLetter={letters[this.state.currentRound]} canPlayAudio={canPlayAudio} disableAudio={() => this.setState({ canPlayAudio: false })}/>
-            { shouldRedirect ?  <Redirect to="/" /> : null  } 
+            <Letters active={isRoundActive} currentLetter={letters[currentRound]} canPlayAudio={canPlayAudio} disableAudio={() => this.setState({ canPlayAudio: false })}/>
         </div>
     }
 }
