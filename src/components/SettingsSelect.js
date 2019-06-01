@@ -8,28 +8,27 @@ export class SettingsSelect extends Component {
     }
 
     handleSettingChange = (e) => {
-        this.props.changeSettings({ [e.target.name]: Number(e.target.value) });
+        this.props.changeSetting(Number(e.target.value));
     }
 
-    renderOptions(name, options) {
-        return options.map(option => {
-            // Adjust inner text of duration but keep in milliseconds everywhere else
-            let innerText = option;
-            if (name === 'duration') {
-                innerText = (option / 1000).toPrecision(2).toString() + ' sec';
-            }
-            return <option value={option} key={option}>{innerText}</option>
+    renderOptions(options) {
+        return options.map(op => <option value={op} key={op}>{op}</option>)
+    }
+
+    renderDurations(options) {
+        return options.map(op => {
+            // Inner text of duration is human-readable but keep in milliseconds everywhere else
+            let innerText = (op / 1000).toPrecision(2).toString() + ' sec'
+            return <option value={op} key={op}>{innerText}</option>
         })
     }
 
     render() {
-        let { name, options, settings } = this.props;
-        const defaultValue = settings[name];
-        options = options[name];
+        let { name, value, options } = this.props;
         
         return <div  className='input-field'>
-            <select style={{ borderColor: 'black' }} name={name} defaultValue={defaultValue} onChange={this.handleSettingChange}>
-                { this.renderOptions(name, options) }
+            <select style={{ borderColor: 'black' }} name={name} defaultValue={value} onChange={this.handleSettingChange}>
+                { name === 'duration' ? this.renderDurations(options) : this.renderOptions(options) }
             </select>
         </div>
     }
