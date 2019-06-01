@@ -13,9 +13,6 @@ export class Court extends Component {
     state = {
         canPlayAudio: false,
         currentRound: -1,
-<<<<<<< HEAD
-        roundActive: false
-=======
         isRoundActive: false,
         feedback: {
             letters: null,
@@ -25,14 +22,13 @@ export class Court extends Component {
             positions: false,
             letters: false
         }
->>>>>>> a6f1b57712b6eb5ead5ed6d73426065e644f8d0a
     }
 
     componentDidMount() {
-        const { endGame, duration, maxRounds, n } = this.props;
+        const { endGame, duration, maxRounds, n } = this.props
         
         // First round starts immediately.
-        this.playRound();
+        this.playRound()
 
         // Set up a round loop.
         this.interval = setInterval(() => {
@@ -43,19 +39,17 @@ export class Court extends Component {
                 if (endGame) return endGame()
                 else return setTimeout(() => { this.playRound() }, 1000)
             }
-            this.playRound();
-        }, duration + 300);
+            this.playRound()
+        }, duration + 300)
 
         window.addEventListener('keydown', this.gameListener, false);
     }
     
     componentWillUnmount() {
-        clearInterval(this.interval);
-        clearTimeout(this.timeout);
-        window.removeEventListener('keydown', this.gameListener, false);
+        clearInterval(this.interval)
+        clearTimeout(this.timeout)
+        window.removeEventListener('keydown', this.gameListener, false)
     }
-<<<<<<< HEAD
-=======
 
     // Don't use this function directly. Rather, use its bound versions:
     // checkPositions and checkLetters
@@ -63,7 +57,7 @@ export class Court extends Component {
         const { n } = this.props
         const { currentRound, isRoundActive, userAnswered } = this.state
 
-        if (currentRound < n || !isRoundActive || userAnswered[stim]) return;
+        if (currentRound < n || !isRoundActive || userAnswered[stim]) return
         else {
             let newState = { 
                 feedback: this.state.feedback, 
@@ -83,8 +77,7 @@ export class Court extends Component {
     checkMissed = () => {
         const { n } = this.props
         const { currentRound, userAnswered } = this.state
-        // debugger;
-        if (currentRound < n) return;
+        if (currentRound < n) return
         else {
             checkFor.call(this, 'positions')
             checkFor.call(this, 'letters')
@@ -104,26 +97,18 @@ export class Court extends Component {
             }
         }
     }
->>>>>>> a6f1b57712b6eb5ead5ed6d73426065e644f8d0a
     
     gameListener = (e) => {
         switch (e.key) {
             case 'Escape':
-                this.props.cancelGame();
-                break;
+                this.props.cancelGame()
+                break
             case 'a':
-<<<<<<< HEAD
-                this.props.answer('positions');
-                break;
+                this.checkPositions()
+                break
             case 'l':
-                this.props.answer('letters');
-=======
-                this.checkPositions();
-                break;
-            case 'l':
-                this.checkLetters();
->>>>>>> a6f1b57712b6eb5ead5ed6d73426065e644f8d0a
-                break;
+                this.checkLetters()
+                break
             default:
                 break;
         }
@@ -135,12 +120,7 @@ export class Court extends Component {
         this.setState({ 
             canPlayAudio: true,
             currentRound: this.state.currentRound + 1,
-<<<<<<< HEAD
-            roundActive: true
-        })
-        this.timeout = setTimeout(() => {
-            this.setState({ roundActive: false });
-=======
+
             isRoundActive: true,
             feedback: {
                 positions: null,
@@ -151,32 +131,17 @@ export class Court extends Component {
                 letters: false
             }
         })
+
         this.timeout = setTimeout(() => {
             this.setState({ isRoundActive: false })
             this.checkMissed()
->>>>>>> a6f1b57712b6eb5ead5ed6d73426065e644f8d0a
-        }, duration);
+        }, duration)
+
     }
 
 
     render() {
-        const { 
-            letters, 
-            maxRounds, 
-            n,
-            positions, 
-<<<<<<< HEAD
-            positionsButtonColor, 
-            positionHandler,
-            shouldRedirect 
-        } = this.props
-        const { canPlayAudio, currentRound, roundActive } = this.state
-
-        return <div className="court">
-            <IndicatorBar maxRounds={maxRounds} currentRound={currentRound} n={n} />
-            <PositionBoard active={roundActive} currentPosition={positions[this.state.currentRound]}/>
-=======
-        } = this.props
+        const { letters, maxRounds, n, positions } = this.props
         const { canPlayAudio, currentRound, isRoundActive } = this.state
         const positionsColor = mapFeedbackColor(this.state.feedback.positions)
         const lettersColor = mapFeedbackColor(this.state.feedback.letters)
@@ -184,17 +149,11 @@ export class Court extends Component {
         return <div className="court">
             <IndicatorBar maxRounds={maxRounds} currentRound={currentRound} n={n} />
             <PositionBoard active={isRoundActive} currentPosition={positions[currentRound]}/>
->>>>>>> a6f1b57712b6eb5ead5ed6d73426065e644f8d0a
             <div className="court-buttons">
                 <MatchButton color={positionsColor} name="Match Position" onClick={this.checkPositions}/>
                 <MatchButton color={lettersColor} name="Match Letter" onClick={this.checkLetters}/>
             </div>
-<<<<<<< HEAD
-            <Letters active={roundActive} currentLetter={letters[this.state.currentRound]} canPlayAudio={canPlayAudio} disableAudio={() => this.setState({ canPlayAudio: false })}/>
-            { shouldRedirect ?  <Redirect to="/" /> : null  } 
-=======
             <Letters active={isRoundActive} currentLetter={letters[currentRound]} canPlayAudio={canPlayAudio} disableAudio={() => this.setState({ canPlayAudio: false })}/>
->>>>>>> a6f1b57712b6eb5ead5ed6d73426065e644f8d0a
         </div>
     }
 }
