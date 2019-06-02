@@ -1,33 +1,29 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
-import { changeSettings } from "../actions/settingsActions";
 
+import SettingsContext from '../context/SettingsContext';
 import SettingsSelect from "./SettingsSelect";
+import escapeable from './escapeable';
 
-const nOptions = [ 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
-const maxRoundsOptions = [ 10, 15, 20, 25, 30 ];
-const durationOptions = [ 1000, 1500, 2000, 2500, 3000, 3500 ];
-
-
-
-class Settings extends Component {
-    render() {
-        return <div className='container center'>
-            <h1>Settings</h1>
-            <label>N:</label>
-            <SettingsSelect name="n" options={nOptions} />
-            <label>Maximum Rounds:</label>
-            <SettingsSelect name="maxRounds" options={maxRoundsOptions} />
-            <label>Round Duration</label>
-            <SettingsSelect name="duration" options={durationOptions} />
-            <Link to="/" className="btn">Back to Menu</Link>
-        </div>
-    }
+const options = {
+    n: [ 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+    maxRounds: [ 10, 15, 20, 25, 30 ],
+    duration: [ 1000, 1500, 2000, 2500, 3000, 3500 ]
 }
 
-function mapStateToProps(state) { 
-    return { settings: state.settings } 
+export function Settings() {
+    const [settings, setSettings] = useContext(SettingsContext)
+
+    return <div className='container center'>
+        <h1>Settings</h1>
+        <label>N:</label>
+        <SettingsSelect name="n" value={settings.n} options={options.n} changeSetting={(val) => setSettings('n', val)}/>
+        <label>Maximum Rounds:</label>
+        <SettingsSelect name="maxRounds" value={settings.maxRounds} options={options.maxRounds} changeSetting={(val) => setSettings('maxRounds', val)}/>
+        <label>Round Duration</label>
+        <SettingsSelect name="duration" value={settings.duration} options={options.duration} changeSetting={(val) => setSettings('duration', val)}/>
+        <Link to="/" className="btn">Back to Menu</Link>
+    </div>
 }
 
-export default connect(mapStateToProps, { changeSettings })(Settings)
+export default escapeable(Settings);

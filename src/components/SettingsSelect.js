@@ -1,46 +1,37 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { changeSettings } from "../actions/settingsActions";
 import M from 'materialize-css';
 
-class SettingsSelect extends Component {
-    constructor(props) {
-        super(props);
-        this.handleSettingChange = this.handleSettingChange.bind(this);
-    }
-    
+export class SettingsSelect extends Component {
     componentDidMount() {
         const elems = document.querySelectorAll('select');
         this.selectElemsInstances = M.FormSelect.init(elems, {});
     }
 
-    handleSettingChange(e) {
-        this.props.changeSettings({ [e.target.name]: Number(e.target.value) });
+    handleSettingChange = (e) => {
+        this.props.changeSetting(Number(e.target.value));
     }
 
-    renderOptions(name, options) {
-        return options.map(option => {
-            // Adjust inner text of duration but keep in milliseconds everywhere else
-            let innerText = option;
-            if (name === 'duration') {
-                innerText = (option / 1000).toPrecision(2).toString() + ' sec';
-            }
-            return <option value={option} key={option}>{innerText}</option>
+    renderOptions(options) {
+        return options.map(op => <option value={op} key={op}>{op}</option>)
+    }
+
+    renderDurations(options) {
+        return options.map(op => {
+            // Inner text of duration is human-readable but keep in milliseconds everywhere else
+            let innerText = (op / 1000).toPrecision(2).toString() + ' sec'
+            return <option value={op} key={op}>{innerText}</option>
         })
     }
 
     render() {
-        let { name, options, settings } = this.props;
+        let { name, value, options } = this.props;
         
-        const selected = settings[name];
         return <div  className='input-field'>
-            <select style={{ borderColor: 'black' }} name={name} defaultValue={selected} onChange={this.handleSettingChange}>
-                { this.renderOptions(name, options) }
+            <select style={{ borderColor: 'black' }} name={name} defaultValue={value} onChange={this.handleSettingChange}>
+                { name === 'duration' ? this.renderDurations(options) : this.renderOptions(options) }
             </select>
         </div>
     }
 }
 
-function mapStateToProps({ settings}) { return { settings } }
-
-export default connect ( mapStateToProps, { changeSettings })(SettingsSelect)
+export default SettingsSelect

@@ -1,0 +1,277 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders IndicatorBar 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <_default
+    maxRounds={20}
+    n={2}
+    remainingRounds={22}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Indicator
+          displaySide="left"
+        >
+          Remaining rounds: 
+          <span>
+            20
+            <span
+              className="green-text"
+            >
+               + 
+              2
+            </span>
+          </span>
+        </Indicator>,
+        <Indicator
+          displaySide="right"
+        >
+          N: 
+          2
+        </Indicator>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            "Remaining rounds: ",
+            <span>
+              20
+              <span
+                className="green-text"
+              >
+                 + 
+                2
+              </span>
+            </span>,
+          ],
+          "displaySide": "left",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Remaining rounds: ",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                20,
+                <span
+                  className="green-text"
+                >
+                   + 
+                  2
+                </span>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              20,
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    " + ",
+                    2,
+                  ],
+                  "className": "green-text",
+                },
+                "ref": null,
+                "rendered": Array [
+                  " + ",
+                  2,
+                ],
+                "type": "span",
+              },
+            ],
+            "type": "span",
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            "N: ",
+            2,
+          ],
+          "displaySide": "right",
+        },
+        "ref": null,
+        "rendered": Array [
+          "N: ",
+          2,
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Indicator
+            displaySide="left"
+          >
+            Remaining rounds: 
+            <span>
+              20
+              <span
+                className="green-text"
+              >
+                 + 
+                2
+              </span>
+            </span>
+          </Indicator>,
+          <Indicator
+            displaySide="right"
+          >
+            N: 
+            2
+          </Indicator>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              "Remaining rounds: ",
+              <span>
+                20
+                <span
+                  className="green-text"
+                >
+                   + 
+                  2
+                </span>
+              </span>,
+            ],
+            "displaySide": "left",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Remaining rounds: ",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  20,
+                  <span
+                    className="green-text"
+                  >
+                     + 
+                    2
+                  </span>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                20,
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " + ",
+                      2,
+                    ],
+                    "className": "green-text",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " + ",
+                    2,
+                  ],
+                  "type": "span",
+                },
+              ],
+              "type": "span",
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              "N: ",
+              2,
+            ],
+            "displaySide": "right",
+          },
+          "ref": null,
+          "rendered": Array [
+            "N: ",
+            2,
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
