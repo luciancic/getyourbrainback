@@ -148,14 +148,16 @@ export class Court extends Component {
         const positionsColor = mapFeedbackColor(this.state.feedback.positions)
         const lettersColor = mapFeedbackColor(this.state.feedback.letters)
 
-        return <div className="court">
-            <IndicatorBar maxRounds={maxRounds} currentRound={currentRound} n={n} />
-            <PositionBoard active={isRoundActive} currentPosition={positions[currentRound]}/>
-            <div className="court-buttons">
+        return <div id="court">
+            <section id="court-action">
+                <IndicatorBar maxRounds={maxRounds} currentRound={currentRound} n={n} />
+                <PositionBoard active={isRoundActive} currentPosition={positions[currentRound]}/>
+                <Letters active={isRoundActive} currentLetter={letters[currentRound]} canPlayAudio={canPlayAudio} disableAudio={() => this.setState({ canPlayAudio: false })}/>
+            </section>
+            <section id="court-buttons">
                 <MatchButton color={positionsColor} name="Match Position" onClick={this.checkPositions}/>
                 <MatchButton color={lettersColor} name="Match Letter" onClick={this.checkLetters}/>
-            </div>
-            <Letters active={isRoundActive} currentLetter={letters[currentRound]} canPlayAudio={canPlayAudio} disableAudio={() => this.setState({ canPlayAudio: false })}/>
+            </section>
         </div>
     }
 }

@@ -1,19 +1,93 @@
-.court {
+#court {
     height: 100vh;
     display: grid;
-    grid-template-rows: 15% 60% 15% 10%;
+    grid-template-rows: 5fr 2fr;
     align-items: center;
     justify-items: center;
 }
 
-@media (max-height: 500px) and (min-aspect-ratio: 16/10) {
-    .court {
-        grid-template-rows: 20% 75%;
-        grid-template-columns: 70% 25%;
+#court-action {
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+
+#court-buttons {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    place-items: center center;
+    height: 80%;
+}
+
+@media screen and (min-width: 768px) {
+    #court {
+        grid-template-rows: none;
+        grid-template-columns: 3fr 2fr;
     }
 
-    .court-buttons {
-        grid-column: 2;
-        grid-row: 1/3;
+    #court-buttons {
+        grid-template-rows: 1fr 1fr; 
+        place-items: center left; 
+        padding: 10% ; 
+        height: 100%
+    }
+}
+
+
+
+
+
+
+
+
+/* On phone */
+#menu { 
+    display: grid;
+    grid-template-rows: 2fr 4fr;
+    height: 100vh;
+}
+#menu-text {
+    align-self: center;
+}
+
+#menu-text h1 { 
+    font-size: 2rem; 
+    padding: 0 1rem;
+}
+#menu-text p { display: none}
+#menu-buttons { 
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    place-items: center center;
+    height: 80%;
+}
+
+
+/* On desktop */
+@media screen and (min-width: 768px) {
+    #menu { 
+        grid-template-rows: none;
+        grid-template-columns: 3fr 2fr;
+        height: 100vh;
+    }
+    #menu-text { 
+        display: grid; 
+        grid-template-rows: 1fr 2fr
+    }
+    #menu-text h1 { 
+        align-self: end; 
+        padding: 0 1rem
+    }
+    #menu-text p { 
+        display: block; 
+        padding: 0 5rem; 
+        align-self: start; 
+        text-align: left
+    }
+    #menu-buttons { 
+        display: grid; 
+        grid-template-rows: 1fr 1fr 1fr; 
+        place-items: center left; 
+        padding: 10% ; 
+        height: 100%
     }
 }
