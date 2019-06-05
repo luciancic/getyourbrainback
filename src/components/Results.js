@@ -2,22 +2,25 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import escapeable from './escapeable'
 import ResultsContext from '../context/ResultsContext'
+import './Results.css'
 
 export function Results() {
     const [ res ] = useContext(ResultsContext)
     const lastResult = Array.isArray(res) ? res[0] : []
 
-    return <div>
-        <h1>Results</h1>
-        { lastResult ? 
-            <p>Last game results: { calculatePercentage(lastResult.score) }%</p> 
-            :
-            <p>No results yet, play a game!</p>
-        }
-        <div>
+    return <div id="results">
+        <section id="results-text">
+            <h1>Results</h1>
+            { lastResult ? 
+                <p>Last game results: { calculatePercentage(lastResult.score) }%</p> 
+                :
+                <p>No results yet, play a game!</p>
+            }
+        </section>
+        <section id="results-buttons">
             <Link to='/game'><button className='btn green'>{ lastResult ? 'Play again' : 'Play' }</button></Link>
             <Link to='/'><button className='btn orange'>Menu</button></Link>
-        </div>
+        </section>
     </div>
 }
 
