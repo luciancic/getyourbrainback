@@ -15,7 +15,7 @@
 #menu-text p { display: none}
 #menu-buttons { 
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     place-items: center center;
     height: 80%;
 }
@@ -44,7 +44,7 @@
     }
     #menu-buttons { 
         display: grid; 
-        grid-template-rows: 1fr 1fr 1fr 1fr; 
+        grid-template-rows: 1fr 1fr 1fr; 
         place-items: center left; 
         padding: 10% ; 
         height: 100%

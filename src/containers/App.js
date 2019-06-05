@@ -5,7 +5,7 @@ import Menu from '../components/Menu';
 import Game from '../components/Game';
 import Results from '../components/Results';
 import Settings from '../components/Settings';
-import Tutorial from '../components/Tutorial';
+// import Tutorial from '../components/Tutorial';
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css'; // Global styles
 
@@ -17,7 +17,7 @@ export default function App() {
         <Route path='/game' component={Game}/>
         <Route path='/results' component={Results}/>
         <Route path='/settings' component={Settings}/>
-        <Route path='/tutorial' component={Tutorial}/>
+        {/* <Route path='/tutorial' component={Tutorial}/> */}
       </Fragment>
     </BrowserRouter>
   </Provider>
