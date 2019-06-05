@@ -53,7 +53,7 @@ export class Court extends Component {
 
     // Don't use this function directly. Rather, use its bound versions:
     // checkPositions and checkLetters
-    checkAnswer = (stim) => { 
+    checkAnswer = (stim, handler) => { 
         const { n } = this.props
         const { currentRound, isRoundActive, userAnswered } = this.state
 
@@ -69,21 +69,22 @@ export class Court extends Component {
             newState.feedback[stim] = isAnswerCorrect ? 'correct' : 'mistake'
             newState.userAnswered[stim] = true
             this.setState(newState)
+            handler(isAnswerCorrect)
         }
     }
-    checkPositions = this.checkAnswer.bind(this, 'positions')
-    checkLetters = this.checkAnswer.bind(this, 'letters')
+    checkPositions = this.checkAnswer.bind(this, 'positions', this.props.handlePositionScore)
+    checkLetters = this.checkAnswer.bind(this, 'letters', this.props.handleLettersScore)
 
     checkMissed = () => {
-        const { n } = this.props
+        const { handlePositionScore, handleLettersScore, n } = this.props
         const { currentRound, userAnswered } = this.state
         if (currentRound < n) return
         else {
-            checkFor.call(this, 'positions')
-            checkFor.call(this, 'letters')
+            checkFor.call(this, 'positions', handlePositionScore)
+            checkFor.call(this, 'letters', handleLettersScore)
         }
 
-        function checkFor(stim) {
+        function checkFor(stim, handler) {
             if (userAnswered[stim]) return;
             else {
                 let newState = { feedback: this.state.feedback }
@@ -93,6 +94,7 @@ export class Court extends Component {
                 if (isAnswerMissed) {
                     newState.feedback[stim] = 'missed'
                     this.setState(newState)
+                    handler(false)
                 }
             }
         }

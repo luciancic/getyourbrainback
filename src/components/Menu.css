@@ -15,7 +15,7 @@
 #menu-text p { display: none}
 #menu-buttons { 
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     place-items: center center;
     height: 80%;
 }
@@ -33,20 +33,18 @@
         grid-template-rows: 1fr 2fr
     }
     #menu-text h1 { 
-        font-size: 2.3rem; 
         align-self: end; 
         padding: 0 1rem
     }
     #menu-text p { 
         display: block; 
-        font-size: 1.2rem; 
         padding: 0 5rem; 
         align-self: start; 
         text-align: left
     }
     #menu-buttons { 
         display: grid; 
-        grid-template-rows: 1fr 1fr 1fr; 
+        grid-template-rows: 1fr 1fr 1fr 1fr; 
         place-items: center left; 
         padding: 10% ; 
         height: 100%

@@ -12,6 +12,7 @@ export class Menu extends Component {
             <section id='menu-buttons'>
                 <Link to='/game'><button className='btn green'>Play Game</button></Link>
                 <Link to='/tutorial'><button className='btn blue'>Play Tutorial</button></Link>
+                <Link to='/results'><button className='btn purple'>Results</button></Link>
                 <Link to='/settings'><button className='btn orange'>Settings</button></Link>
             </section>
         </div>

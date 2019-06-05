@@ -11,3 +11,11 @@ Global styles
     height: 3rem;
     font-size: 1.1rem;
 }
+
+h1 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
