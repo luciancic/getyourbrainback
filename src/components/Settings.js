@@ -1,18 +1,16 @@
-import React, { useContext } from 'react';
-import { Link } from "react-router-dom";
+import React, { useContext } from 'react'
+import { Link } from "react-router-dom"
+import SettingsContext from '../context/SettingsContext'
+import SettingsSelect from "./SettingsSelect"
+import escapeable from './escapeable'
 
-import SettingsContext from '../context/SettingsContext';
-import SettingsSelect from "./SettingsSelect";
-import escapeable from './escapeable';
-
-const options = {
-    n: [ 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
-    maxRounds: [ 10, 15, 20, 25, 30 ],
-    duration: [ 1000, 1500, 2000, 2500, 3000, 3500 ]
-}
-
-export function Settings() {
+function Settings() {
     const [settings, setSettings] = useContext(SettingsContext)
+    const options = {
+        n: [ 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+        maxRounds: [ 10, 15, 20, 25, 30 ],
+        duration: [ 1000, 1500, 2000, 2500, 3000, 3500 ]
+    }
 
     return <div className='container center'>
         <h1>Settings</h1>

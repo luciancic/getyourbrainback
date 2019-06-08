@@ -22,9 +22,7 @@ const ResultsContext = createContext()
 
 export function ResultsProvider(props) {
     const storedRecords = LocalStorage.get('records')
-    
     const initialRecords = storedRecords || []
-    
     const [records, __setRecords__] = useState(initialRecords)
     
     function addRecord(record) {
@@ -38,9 +36,7 @@ export function ResultsProvider(props) {
         LocalStorage.set('records', newRecords)
     }
     
-    const value = [records, addRecord]
-    
-    return <ResultsContext.Provider value={value}>
+    return <ResultsContext.Provider value={[records, addRecord]}>
         {props.children}
     </ResultsContext.Provider>
 }

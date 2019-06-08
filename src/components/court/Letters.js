@@ -1,10 +1,11 @@
-import React from 'react';
-import Letter from './Letter';
+import React from 'react'
+import Letter from './Letter'
 
-const arr = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
-
-export default ({ active, canPlayAudio, currentLetter, disableAudio }) => (
-    <div id="letters">
+function Letters(props) {
+    const { active, canPlayAudio, currentLetter, disableAudio } = props
+    const arr = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+    
+    return <div id="letters">
         {arr.map((i) => {
             return <Letter 
                 number={i} 
@@ -14,4 +15,6 @@ export default ({ active, canPlayAudio, currentLetter, disableAudio }) => (
             />
         })}
     </div>
-)
+}
+
+export default Letters

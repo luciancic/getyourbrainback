@@ -7,12 +7,14 @@ function renderRemainingRounds(maxRounds, remainingRounds) {
         : remainingRounds
 }
 
-export default function IndicatorBar(props) {
+function IndicatorBar(props) {
     const { maxRounds, currentRound, n } = props
     const remainingRounds = maxRounds + n - currentRound
 
-    return <div>
+    return <div id="indicator-bar">
         <Indicator displaySide="left">Remaining rounds: { renderRemainingRounds(maxRounds, remainingRounds) }</Indicator>
         <Indicator displaySide="right">N: {n}</Indicator>
     </div>
 }
+
+export default IndicatorBar

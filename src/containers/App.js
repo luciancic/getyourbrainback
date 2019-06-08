@@ -1,15 +1,15 @@
-import React, { Fragment } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Provider from '../context';
-import Menu from '../components/Menu';
-import Game from '../components/Game';
-import Results from '../components/Results';
-import Settings from '../components/Settings';
-// import Tutorial from '../components/Tutorial';
-import 'materialize-css/dist/css/materialize.min.css';
-import './App.css'; // Global styles
+import React, { Fragment } from 'react'
+import { BrowserRouter, Route } from 'react-router-dom'
+import Provider from '../context'
+import Menu from '../components/Menu'
+import Game from '../components/Game'
+import Results from '../components/Results'
+import Settings from '../components/Settings'
+// import Tutorial from '../components/Tutorial'
+import 'materialize-css/dist/css/materialize.min.css'
+import './App.css' // Global styles
 
-export default function App() {
+function App() {
   return <Provider>
     <BrowserRouter>
       <Fragment>
@@ -22,3 +22,5 @@ export default function App() {
     </BrowserRouter>
   </Provider>
 }
+
+export default App

@@ -1,7 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-const Indicator = ({ children, displaySide}) => {
-    return <span className={ displaySide } style={{ padding: '0 15px'}}>{ children }</span>
+function Indicator(props) {
+    const { children, displaySide } = props
+
+    return <span className={ displaySide } style={{ padding: '0 15px'}}>
+        { children }
+    </span>
 }
 
-export default Indicator;
+export default Indicator
