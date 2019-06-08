@@ -1,3 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-export default (props) => <div className={`position-circle green ${props.active ? "" : "lighten-4"}`} />
+function PositionCircle(props) {
+    return <div className={`position-circle green ${props.active ? "" : "lighten-4"}`} />
+}
+
+export default PositionCircle

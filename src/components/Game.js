@@ -5,7 +5,7 @@ import SettingsContext from '../context/SettingsContext'
 import ResultsContext from '../context/ResultsContext'
 import { generateGameArray } from '../utils'
 
-export default function Game(props) {
+function Game() {
     const [settings] = useContext(SettingsContext)
     const addResult = useContext(ResultsContext)[1]
     const [gameOver, setGameOver] = useState(false)
@@ -56,3 +56,5 @@ export default function Game(props) {
         { gameOver && <Redirect to="/results" /> }
     </Fragment>
 }
+
+export default Game

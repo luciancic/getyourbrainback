@@ -4,7 +4,7 @@ import escapeable from './escapeable'
 import ResultsContext from '../context/ResultsContext'
 import './Results.css'
 
-export function Results() {
+function Results() {
     const [ res ] = useContext(ResultsContext)
     const lastResult = Array.isArray(res) ? res[0] : []
 

@@ -1,4 +1,3 @@
-
 import React, { createContext, useState } from 'react'
 import { LocalStorage } from '../utils'
 
@@ -6,13 +5,11 @@ const SettingsContext = createContext()
 
 export function SettingsProvider(props) {
     const storedSettigns = LocalStorage.get('settings')
-    
     const initialSettings = Object.assign({
         n: 2,
         maxRounds: 20,
         duration: 2000,    
     }, storedSettigns)
-    
     const [settings, __setSettings__] = useState(initialSettings)
     
     function setSettings(name, value) {
@@ -26,9 +23,7 @@ export function SettingsProvider(props) {
         LocalStorage.set('settings', newSettings)
     }
     
-    const value = [settings, setSettings]
-    
-    return <SettingsContext.Provider value={value}>
+    return <SettingsContext.Provider value={[settings, setSettings]}>
         {props.children}
     </SettingsContext.Provider>
 }

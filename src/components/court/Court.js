@@ -1,4 +1,4 @@
-// Component shared across Game and Tutorial
+// Handles UI of the whole game at a high level
 import React, { Component } from 'react'
 import IndicatorBar from './IndicatorBar'
 import Letters from './Letters'
@@ -162,4 +162,4 @@ export class Court extends Component {
     }
 }
 
-export default escapeable(Court);
+export default escapeable(Court)

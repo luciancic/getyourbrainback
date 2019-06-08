@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class Letter extends Component {
     constructor(props) {
@@ -20,4 +20,4 @@ class Letter extends Component {
     }
 }
 
-export default Letter;
+export default Letter
