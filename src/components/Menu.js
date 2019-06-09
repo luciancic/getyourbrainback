@@ -10,7 +10,7 @@ function Menu() {
         </section>
         <section id='menu-buttons'>
             <Link to='/game'><button className='btn green'>Play</button></Link>
-            {/* <Link to='/tutorial'><button className='btn blue'>Play Tutorial</button></Link> */}
+            <Link to='/tutorial'><button className='btn blue'>Tutorial</button></Link>
             <Link to='/results'><button className='btn purple'>Results</button></Link>
             <Link to='/settings'><button className='btn orange'>Settings</button></Link>
         </section>
