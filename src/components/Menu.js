@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './Menu.css'
 
 function Menu() {
-    return <div id='menu' className='center'>
+    return <div id='menu' className='my-container center'>
         <section id='menu-text'>
             <h1>Get Your Brain Back!</h1>
             <p>Challenge your brain and improve your working memory. Inspired by <a href='https://wikipedia.org/wiki/N-back' target='_blank' rel="noopener noreferrer">n-back</a>.</p>

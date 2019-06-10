@@ -1,0 +1,77 @@
+/* 
+Global styles 
+*/
+
+@mixin large-screen {
+    @media (min-width: 768px) { @content; }
+}
+
+
+/* Overwrites btn class of materialize-css. Do not change to button. */
+.btn { 
+    width: 15em;
+    height: 3rem;
+    font-size: 1.1rem;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+// container conflicts with materialize-css class
+// so I named it my-container
+.my-container { 
+    display: grid;
+    grid-template-rows: 2fr 4fr;
+    height: 100vh;
+
+    @include large-screen {
+        grid-template-rows: none;
+        grid-template-columns: 3fr 2fr;
+    }
+}
+// #menu-text {
+//     align-self: center;
+// }
+
+// #menu-text h1 { 
+//     font-size: 2rem; 
+//     padding: 0 1rem;
+// }
+// #menu-text p { display: none}
+// #menu-buttons { 
+//     display: grid;
+//     grid-template-rows: 1fr 1fr 1fr 1fr;
+//     place-items: center center;
+//     height: 80%;
+// }
+
+
+// /* On desktop */
+// @media screen and (min-width: 768px) {
+    
+//     #menu-text { 
+//         display: grid; 
+//         grid-template-rows: 1fr 2fr
+//     }
+//     #menu-text h1 { 
+//         align-self: end; 
+//         padding: 0 1rem
+//     }
+//     #menu-text p { 
+//         display: block; 
+//         padding: 0 5rem; 
+//         align-self: start; 
+//         text-align: left
+//     }
+//     #menu-buttons { 
+//         justify-self: left;
+//         place-items: center left; 
+//         padding: 10% ; 
+//         height: 100%
+//     }
+// }

@@ -18,7 +18,6 @@
     #results { 
         grid-template-rows: none;
         grid-template-columns: 3fr 2fr;
-        height: 100vh;
     }
     #results-text {
         display: grid;

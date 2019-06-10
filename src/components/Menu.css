@@ -1,11 +1,7 @@
 /* On phone */
-#menu { 
-    display: grid;
-    grid-template-rows: 2fr 4fr;
-    height: 100vh;
-}
 #menu-text {
     align-self: center;
+    justify-items: center;
 }
 
 #menu-text h1 { 
@@ -23,14 +19,9 @@
 
 /* On desktop */
 @media screen and (min-width: 768px) {
-    #menu { 
-        grid-template-rows: none;
-        grid-template-columns: 3fr 2fr;
-        height: 100vh;
-    }
     #menu-text { 
         display: grid; 
-        grid-template-rows: 1fr 2fr
+        grid-template-rows: 1fr 2fr;
     }
     #menu-text h1 { 
         align-self: end; 
@@ -40,7 +31,7 @@
         display: block; 
         padding: 0 5rem; 
         align-self: start; 
-        text-align: left
+        justify-self: start;
     }
     #menu-buttons { 
         justify-self: left;

@@ -7,7 +7,7 @@ import Results from '../components/Results'
 import Settings from '../components/Settings'
 import Tutorial from '../components/Tutorial'
 import 'materialize-css/dist/css/materialize.min.css'
-import './App.css' // Global styles
+import './App.scss' // Global styles
 
 function App() {
   return <Provider>
