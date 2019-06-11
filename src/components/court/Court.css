@@ -1,33 +1,5 @@
-#court {
-    height: 100vh;
-    display: grid;
-    grid-template-rows: 5fr 2fr;
-    align-items: center;
-    justify-items: center;
-}
-
 #court-action {
     display: grid;
     grid-template-rows: 1fr 4fr;
-}
-
-#court-buttons {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    place-items: center center;
-    height: 80%;
-}
-
-@media screen and (min-width: 768px) {
-    #court {
-        grid-template-rows: none;
-        grid-template-columns: 3fr 2fr;
-    }
-
-    #court-buttons {
-        grid-template-rows: 1fr 1fr; 
-        place-items: center left; 
-        padding: 10% ; 
-        height: 100%
-    }
+    align-items: center;
 }

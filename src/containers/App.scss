@@ -6,6 +6,10 @@ Global styles
     @media (min-width: 768px) { @content; }
 }
 
+@mixin small-screen {
+    @media (max-width: 768px) { @content; }
+}
+
 
 /* Overwrites btn class of materialize-css. Do not change to button. */
 .btn { 
@@ -22,16 +26,73 @@ p {
     font-size: 1.2rem;
 }
 
-// container conflicts with materialize-css class
-// so I named it my-container
-.my-container { 
+// Watch out! container conflicts with materialize-css class
+.top-container { 
     display: grid;
-    grid-template-rows: 2fr 4fr;
     height: 100vh;
+    justify-items: center;
+    align-items: center;
+    padding: 0 2em;
 
     @include large-screen {
         grid-template-rows: none;
         grid-template-columns: 3fr 2fr;
+    }
+
+    @include small-screen {
+        &--results {
+            grid-template-rows: 1fr 1fr;
+        }
+    
+        &--menu {
+            grid-template-rows: 2fr 4fr;
+        }
+    
+        &--court {
+            grid-template-rows: 5fr 2fr;
+        }
+    }
+}
+
+.text-container {
+    @include large-screen {
+        display: grid; 
+        grid-template-rows: 1fr 2fr;
+    }
+
+    justify-items: center;
+}
+
+.button-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    place-items: center center;
+    height: 100%;
+    padding: 2em 10%;
+
+    &--2-buttons {
+        grid-template-rows: 1fr 1fr;
+    }
+    
+    @include large-screen {
+        &--2-buttons {
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+
+            & button:first-of-type, a:first-of-type {
+                grid-row: 2;
+            }
+            & button:last-of-type, a:last-of-type {
+                grid-row: 3;
+            }
+        }
+
+        justify-self: start;
+    }
+}
+
+@include small-screen {
+    .hide-on-small {
+        display: none;
     }
 }
 // #menu-text {
