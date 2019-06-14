@@ -1,16 +1,16 @@
 import React, { Fragment } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-import Provider from '../context'
-import Menu from '../components/Menu'
-import Game from '../components/Game'
-import Results from '../components/Results'
-import Settings from '../components/Settings'
-import Tutorial from '../components/Tutorial'
+import ContextProvider from '../context'
+import Menu from './Menu'
+import Game from './Game'
+import Results from './Results'
+import Settings from './Settings'
+import Tutorial from './Tutorial'
 import 'materialize-css/dist/css/materialize.min.css'
-import './App.scss' // Global styles
+import '../styles/styles.scss'
 
 function App() {
-  return <Provider>
+  return <ContextProvider>
     <BrowserRouter>
       <Fragment>
         <Route exact path='/' component={Menu}/>
@@ -20,7 +20,7 @@ function App() {
         <Route path='/tutorial' component={Tutorial}/>
       </Fragment>
     </BrowserRouter>
-  </Provider>
+  </ContextProvider>
 }
 
 export default App

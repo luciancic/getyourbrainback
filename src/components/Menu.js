@@ -2,17 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function Menu() {
-    return <div id='menu' className='top-container top-container--menu'>
-        <section id='menu-text' className="text-container">
-            <h1>Get Your Brain Back!</h1>
-            <p className="hide-on-small">Challenge your brain and improve your working memory. Inspired by <a href='https://wikipedia.org/wiki/N-back' target='_blank' rel="noopener noreferrer">n-back</a>.</p>
-        </section>
-        <section id='menu-buttons' className="button-container">
-            <Link to='/game'><button className='btn green'>Play</button></Link>
-            <Link to='/tutorial'><button className='btn blue'>Tutorial</button></Link>
-            <Link to='/results'><button className='btn purple'>Results</button></Link>
-            <Link to='/settings'><button className='btn orange'>Settings</button></Link>
-        </section>
+    return <div className='menu'>
+        <h1 className="menu--text">Get Your Brain Back!</h1>
+        <Link to='/game'><button className='menu--button btn green'>Play</button></Link>
+        <Link to='/tutorial'><button className='menu--button btn blue'>Tutorial</button></Link>
+        <Link to='/results'><button className='menu--button btn purple'>Results</button></Link>
+        <Link to='/settings'><button className='menu--button btn orange'>Settings</button></Link>
     </div>
 }
 

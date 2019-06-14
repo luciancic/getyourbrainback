@@ -1,0 +1,116 @@
+// 
+// Mixins
+// 
+
+@mixin large-screen {
+    @media (min-width: 768px) { @content; }
+}
+
+@mixin small-screen {
+    @media (max-width: 768px) { @content; }
+}
+
+
+
+// 
+// Elements
+// 
+
+html {
+    font-size: unset;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+
+
+// 
+// Classes
+// 
+
+.btn { /* Overwrites btn class of materialize-css */
+    font-size: 1.1rem;
+    height: unset;
+    width: unset;
+}
+
+.button-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    place-items: center center;
+    height: 100%;
+    padding: 2em 10%;
+
+    &--2-buttons {
+        grid-template-rows: 1fr 1fr;
+    }
+    
+    @include large-screen {
+        &--2-buttons {
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+
+            & button:first-of-type, a:first-of-type {
+                grid-row: 2;
+            }
+            & button:last-of-type, a:last-of-type {
+                grid-row: 3;
+            }
+        }
+
+        justify-self: start;
+    }
+}
+
+.menu {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    height: 100vh;
+
+    &--button {
+        width: 100%;
+        height: 100%;
+    } 
+
+    &--text {
+        font-size: 2rem !important;
+        position: absolute;
+        color: white;
+        top: 50%;
+        left: 50%;
+        margin-top: -32px;
+        transform: translateX(-127px);
+    }
+}
+
+.top-container { // Do not rename; .container conflicts with materialize-css class.
+    display: grid;
+    height: 100vh;
+    justify-items: center;
+    align-items: center;
+
+    @include large-screen {
+        grid-template-rows: none;
+        grid-template-columns: 3fr 2fr;
+    }
+
+    @include small-screen {
+        &--results {
+            grid-template-rows: 1fr 1fr;
+        }
+    
+        &--menu {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    
+        &--court {
+            grid-template-rows: 5fr 2fr;
+        }
+    }
+}

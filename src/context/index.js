@@ -2,7 +2,7 @@ import React from 'react'
 import { ResultsProvider } from './ResultsContext'
 import { SettingsProvider } from './SettingsContext'
 
-function Provider(props) {
+function ContextProvider(props) {
     return <SettingsProvider>
         <ResultsProvider>
             {props.children}
@@ -10,4 +10,4 @@ function Provider(props) {
     </SettingsProvider>
 }
 
-export default Provider
+export default ContextProvider
