@@ -89,6 +89,20 @@ p {
 }
 
 .court {
+    display: grid;
+    height: 100vh;
+    justify-items: center;
+    align-items: center;
+
+    @include large-screen {
+        grid-template-rows: none;
+        grid-template-columns: 3fr 2fr;
+    }
+
+    @include small-screen {
+        grid-template-rows: 4fr 1fr;
+    }
+
     &__action {
         display: grid;
         grid-template-rows: 1fr 4fr;
@@ -113,6 +127,11 @@ p {
         place-items: center center;
         height: 100%;
         width: 100%;
+
+        @include small-screen {
+            grid-template-rows: none;
+            grid-template-columns: 1fr 1fr;
+        }
     }
 
     &__button {
@@ -125,6 +144,11 @@ p {
         height: 20vh;
         width: 20vh;
         border-radius: 100%;
+
+        @include small-screen {
+            height: 25vw;
+            width: 25vw;
+        }
     }
 }
 

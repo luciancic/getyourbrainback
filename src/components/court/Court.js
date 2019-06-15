@@ -146,7 +146,7 @@ export class Court extends Component {
         const positionsColor = mapFeedbackColor(this.state.feedback.positions)
         const lettersColor = mapFeedbackColor(this.state.feedback.letters)
 
-        return <div className="court top-container teal lighten-4">
+        return <div className="court teal lighten-4">
             <section className="court__action">
                 <IndicatorBar maxRounds={maxRounds} currentRound={currentRound} n={n} />
                 <PositionBoard active={isRoundActive} currentPosition={positions[currentRound]}/>
