@@ -7,7 +7,7 @@ function Results() {
     const [ res ] = useContext(ResultsContext)
     const lastResult = Array.isArray(res) ? res[0] : []
 
-    return <div id="results" className="top-container top-container--results">
+    return <div id="results" className="top-container top-container__results">
         <section id="results-text" className="text-container">
             <h1>Results</h1>
             { lastResult ? 
@@ -16,7 +16,7 @@ function Results() {
                 <p>No results yet, play a game!</p>
             }
         </section>
-        <section id="results-buttons" className="button-container button-container--2-buttons">
+        <section id="results-buttons" className="button-container button-container__2-buttons">
             <Link to='/game'><button className='btn blue'>{ lastResult ? 'Play again' : 'Play' }</button></Link>
             <Link to='/'><button className='btn purple'>Menu</button></Link>
         </section>

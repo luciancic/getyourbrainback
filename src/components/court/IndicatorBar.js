@@ -3,7 +3,7 @@ import Indicator from './Indicator'
 
 function renderRemainingRounds(maxRounds, remainingRounds) {
     return remainingRounds > maxRounds ? 
-        <span>{maxRounds}<span className="green-text"> + {remainingRounds - maxRounds}</span></span>
+        <span>{maxRounds}<span className="purple-text"> + {remainingRounds - maxRounds}</span></span>
         : remainingRounds
 }
 

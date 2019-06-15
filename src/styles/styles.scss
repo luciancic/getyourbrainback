@@ -47,12 +47,12 @@ p {
     height: 100%;
     padding: 2em 10%;
 
-    &--2-buttons {
+    &__2-buttons {
         grid-template-rows: 1fr 1fr;
     }
     
     @include large-screen {
-        &--2-buttons {
+        &__2-buttons {
             grid-template-rows: 1fr 1fr 1fr 1fr;
 
             & button:first-of-type, a:first-of-type {
@@ -72,12 +72,12 @@ p {
     grid-template: 1fr 1fr / 1fr 1fr;
     height: 100vh;
 
-    &--button {
+    &__button {
         width: 100%;
         height: 100%;
     } 
 
-    &--text {
+    &__text {
         font-size: 2rem !important;
         position: absolute;
         color: white;
@@ -87,6 +87,48 @@ p {
         transform: translateX(-127px);
     }
 }
+
+.court {
+    &__action {
+        display: grid;
+        grid-template-rows: 1fr 4fr;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        padding: 0 5vw 10vh 5vw;
+    }
+    
+    &__board {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    &__button-container {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        place-items: center center;
+        height: 100%;
+        width: 100%;
+    }
+
+    &__button {
+        height: 100%;
+        width: 100%;
+    }
+
+    &__position-circle {
+        transition: background-color 200ms ease-in-out;
+        height: 20vh;
+        width: 20vh;
+        border-radius: 100%;
+    }
+}
+
+
 
 .top-container { // Do not rename; .container conflicts with materialize-css class.
     display: grid;
@@ -100,17 +142,8 @@ p {
     }
 
     @include small-screen {
-        &--results {
+        &__results {
             grid-template-rows: 1fr 1fr;
-        }
-    
-        &--menu {
-            display: flex;
-            flex-wrap: wrap;
-        }
-    
-        &--court {
-            grid-template-rows: 5fr 2fr;
         }
     }
 }
