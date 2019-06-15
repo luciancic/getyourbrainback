@@ -1,10 +1,9 @@
 import React, { useContext } from 'react'
-import { Link } from "react-router-dom"
 import SettingsContext from '../context/SettingsContext'
 import SettingsSelect from "./SettingsSelect"
-import escapeable from './escapeable'
 
-function Settings() {
+function Settings(props) {
+    const { redirectTo } = props
     const [settings, setSettings] = useContext(SettingsContext)
     const options = {
         n: [ 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
@@ -20,8 +19,8 @@ function Settings() {
         <SettingsSelect name="maxRounds" value={settings.maxRounds} options={options.maxRounds} changeSetting={(val) => setSettings('maxRounds', val)}/>
         <label>Round Duration</label>
         <SettingsSelect name="duration" value={settings.duration} options={options.duration} changeSetting={(val) => setSettings('duration', val)}/>
-        <Link to="/" className="btn">Back to Menu</Link>
+        <button className="btn" onClick={ () => redirectTo('Menu') }>Back to Menu</button>
     </div>
 }
 
-export default escapeable(Settings)
+export default Settings

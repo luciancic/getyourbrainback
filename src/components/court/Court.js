@@ -4,7 +4,6 @@ import IndicatorBar from './IndicatorBar'
 import Letters from './Letters'
 import MatchButton from './MatchButton'
 import PositionBoard from './PositionBoard'
-import escapeable from '../escapeable'
 import { mapFeedbackColor } from '../../utils'
 
 export class Court extends Component {
@@ -160,4 +159,4 @@ export class Court extends Component {
     }
 }
 
-export default escapeable(Court)
+export default Court

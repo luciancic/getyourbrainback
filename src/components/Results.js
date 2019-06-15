@@ -1,9 +1,7 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
-import escapeable from './escapeable'
 import ResultsContext from '../context/ResultsContext'
 
-function Results() {
+function Results(props) {
     const [ res ] = useContext(ResultsContext)
     const lastResult = Array.isArray(res) ? res[0] : []
 
@@ -17,8 +15,8 @@ function Results() {
             }
         </section>
         <section id="results-buttons" className="button-container button-container__2-buttons">
-            <Link to='/game'><button className='btn blue'>{ lastResult ? 'Play again' : 'Play' }</button></Link>
-            <Link to='/'><button className='btn purple'>Menu</button></Link>
+            <button className='btn blue' onClick={ () => props.redirectTo('Game') }>{ lastResult ? 'Play again' : 'Play' }</button>
+            <button className='btn purple' onClick={ () => props.redirectTo('Menu') }>Menu</button>
         </section>
     </div>
 }
@@ -33,4 +31,4 @@ function calculatePercentage(result) {
     return Math.round( (cp + cl) / total * 100 )
 }
 
-export default escapeable(Results)
+export default Results

@@ -1,11 +1,11 @@
 import React, { Fragment, useContext, useState } from 'react'
-import { Redirect } from 'react-router-dom'
 import Court from './court/Court'
 import SettingsContext from '../context/SettingsContext'
 import ResultsContext from '../context/ResultsContext'
 import { generateGameArray } from '../utils'
 
-function Game() {
+function Game(props) {
+    const { redirectTo } = props
     const [settings] = useContext(SettingsContext)
     const addResult = useContext(ResultsContext)[1]
     const [gameOver, setGameOver] = useState(false)
@@ -44,6 +44,7 @@ function Game() {
 
     return <Fragment>
         <Court 
+            cancelGame={() => redirectTo('Menu')}
             endGame={endGame}
             handleLettersScore={handleLettersScore}
             handlePositionScore={handlePositionScore}
@@ -53,7 +54,7 @@ function Game() {
             n={n}
             positions={positions}
         />
-        { gameOver && <Redirect to="/results" /> }
+        { gameOver && redirectTo('Results') }
     </Fragment>
 }
 
