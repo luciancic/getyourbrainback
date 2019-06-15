@@ -1,4 +1,5 @@
 import React from 'react'
+import EscapableHOC from './EscapableHOC'
 
 function Tutorial(props) {
     return <div className="tutorial">
@@ -10,4 +11,4 @@ function Tutorial(props) {
     </div>
 } 
 
-export default Tutorial
+export default EscapableHOC(Tutorial)

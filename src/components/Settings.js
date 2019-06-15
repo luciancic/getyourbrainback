@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import SettingsContext from '../context/SettingsContext'
 import SettingsSelect from "./SettingsSelect"
+import EscapableHOC from './EscapableHOC'
 
 function Settings(props) {
     const { redirectTo } = props
@@ -23,4 +24,4 @@ function Settings(props) {
     </div>
 }
 
-export default Settings
+export default EscapableHOC(Settings)

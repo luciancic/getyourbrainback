@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import ResultsContext from '../context/ResultsContext'
+import EscapableHOC from './EscapableHOC'
 
 function Results(props) {
     const [ res ] = useContext(ResultsContext)
@@ -31,4 +32,4 @@ function calculatePercentage(result) {
     return Math.round( (cp + cl) / total * 100 )
 }
 
-export default Results
+export default EscapableHOC(Results)
