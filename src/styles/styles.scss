@@ -152,7 +152,12 @@ p {
     }
 }
 
-
+.ready {
+    height: 100vh;
+    line-height: 100vh;
+    text-align: center;
+    font-size: 2em;
+}
 
 .top-container { // Do not rename; .container conflicts with materialize-css class.
     display: grid;

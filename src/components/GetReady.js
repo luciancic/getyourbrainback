@@ -8,13 +8,13 @@ function GetReady(props) {
             setTimeout(function() {
                 setReadyStatus('playing')
             }, 800)
-        }, 2000)
+        }, 1400)
     }, [])
 
     return <Fragment>
     { 
-        readyStatus === 'ready' ? <div>Get Ready...</div> :
-        readyStatus === 'start' ? <div>Start!</div> :
+        readyStatus === 'ready' ? <div className='ready green white-text'>Get Ready...</div> :
+        readyStatus === 'start' ? <div className='ready green white-text'>Start!</div> :
         readyStatus === 'playing' ? props.children : null
     }
     </Fragment>

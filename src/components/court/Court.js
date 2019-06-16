@@ -9,7 +9,7 @@ import { mapFeedbackColor } from '../../utils'
 export class Court extends Component {
     state = {
         canPlayAudio: false,
-        currentRound: -1,
+        currentRound: 0,
         isRoundActive: false,
         feedback: {
             letters: null,
@@ -22,22 +22,7 @@ export class Court extends Component {
     }
 
     componentDidMount() {
-        const { endGame, duration, maxRounds, n } = this.props
-        
-        // First round starts immediately.
-        this.playRound()
-
-        // Set up a round loop.
-        this.interval = setInterval(() => {
-            // Do not destructure currentRound because it needs to check value by reference.
-            if (this.state.currentRound === maxRounds + n - 1) {
-                // if endGame handler provided, call it
-                // else repeat the game again
-                if (endGame) return endGame()
-                else return setTimeout(() => { this.playRound() }, 1000)
-            }
-            this.playRound()
-        }, duration + 300)
+        setTimeout(this.beginGame, 600)
 
         window.addEventListener('keydown', this.gameListener, false);
     }
@@ -46,6 +31,21 @@ export class Court extends Component {
         clearInterval(this.interval)
         clearTimeout(this.timeout)
         window.removeEventListener('keydown', this.gameListener, false)
+    }
+
+    beginGame = () => {
+        const { endGame, duration, maxRounds, n } = this.props
+
+        this.playRound(true)
+
+        // Set up a round loop.
+        this.interval = setInterval(() => {
+            // Do not destructure currentRound because it needs to check value by reference.
+            if (this.state.currentRound === maxRounds + n - 1) {
+                endGame()
+            }
+            this.playRound()
+        }, duration + 300)
     }
 
     // Don't use this function directly. Rather, use its bound versions:
@@ -113,12 +113,12 @@ export class Court extends Component {
         }
     }
 
-    playRound = () => {
+    playRound = (isFirstRound) => {
         const { duration } = this.props;
-        
+        const newCurrentRound = isFirstRound ? this.state.currentRound : this.state.currentRound + 1
         this.setState({ 
             canPlayAudio: true,
-            currentRound: this.state.currentRound + 1,
+            currentRound: newCurrentRound,
 
             isRoundActive: true,
             feedback: {
