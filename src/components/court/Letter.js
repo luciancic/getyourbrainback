@@ -4,7 +4,7 @@ class Letter extends Component {
     constructor(props) {
         super(props)
         this.audioRef = React.createRef();
-        this.audio = require(`../../audio/audio-${this.props.number}.wav`);
+        this.audio = require(`../../audio/audio-${this.props.number}.mp3`);
     }
 
     componentDidUpdate() {
