@@ -8,7 +8,7 @@ export function SettingsProvider(props) {
     const initialSettings = Object.assign({
         n: 2,
         maxRounds: 20,
-        duration: 2000,    
+        duration: 2500,
     }, storedSettigns)
     const [settings, __setSettings__] = useState(initialSettings)
     
