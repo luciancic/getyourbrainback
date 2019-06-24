@@ -41,12 +41,6 @@ p {
 // Classes
 // 
 
-.btn { /* Overwrites btn class of materialize-css */
-    font-size: 1.1rem;
-    height: unset;
-    width: unset;
-}
-
 .button-container {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -82,6 +76,8 @@ p {
     &__button {
         width: 100%;
         height: 100%;
+        border: none;
+        font-size: 1.1rem;
     } 
 
     &__text {

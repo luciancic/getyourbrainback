@@ -16,8 +16,8 @@ function Results(props) {
             }
         </section>
         <section id="results-buttons" className="button-container button-container__2-buttons">
-            <button className='btn blue' onClick={ () => props.redirectTo('Game') }>{ lastResult ? 'Play again' : 'Play' }</button>
-            <button className='btn purple' onClick={ () => props.redirectTo('Menu') }>Menu</button>
+            <button className='blue' onClick={ () => props.redirectTo('Game') }>{ lastResult ? 'Play again' : 'Play' }</button>
+            <button className='purple' onClick={ () => props.redirectTo('Menu') }>Menu</button>
         </section>
     </div>
 }
