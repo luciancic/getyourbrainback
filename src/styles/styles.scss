@@ -41,6 +41,26 @@ p {
 // Classes
 // 
 
+.green {
+ background-color: #4caf50;
+}
+
+.red {
+    background-color: #f44336;
+}
+
+.orange {
+    background-color: #ff9800;
+}
+
+.blue {
+    background-color: #2196f3;
+}
+
+.purple {
+    background-color: #9c27b0;
+}
+
 .button-container {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
