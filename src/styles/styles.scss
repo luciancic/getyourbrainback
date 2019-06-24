@@ -18,6 +18,7 @@
 
 html {
     font-size: unset;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1 {
@@ -28,16 +29,41 @@ p {
     font-size: 1.2rem;
 }
 
+* {
+    box-sizing: border-box;
+    &::before, &::after {
+        box-sizing: inherit;
+    }
+}
+
 
 
 // 
 // Classes
 // 
 
-.btn { /* Overwrites btn class of materialize-css */
-    font-size: 1.1rem;
-    height: unset;
-    width: unset;
+.green {
+ background-color: #4caf50;
+}
+
+.red {
+    background-color: #f44336;
+}
+
+.orange {
+    background-color: #ff9800;
+}
+
+.blue {
+    background-color: #2196f3;
+}
+
+.purple {
+    background-color: #9c27b0;
+}
+
+.lighten {
+    opacity: .3;
 }
 
 .button-container {
@@ -75,10 +101,14 @@ p {
     &__button {
         width: 100%;
         height: 100%;
+        border: none;
+        font-size: 1.1rem;
+        color: white;
     } 
 
     &__text {
-        font-size: 2rem !important;
+        font-size: 2rem;
+        font-weight: 400;
         position: absolute;
         color: white;
         top: 50%;
@@ -93,6 +123,7 @@ p {
     height: 100vh;
     justify-items: center;
     align-items: center;
+    background-color: #eceff1 ;
 
     @include large-screen {
         grid-template-rows: none;
@@ -140,7 +171,7 @@ p {
     }
 
     &__position-circle {
-        transition: background-color 200ms ease-in-out;
+        transition: opacity 150ms ease-in-out;
         height: 20vh;
         width: 20vh;
         border-radius: 100%;
@@ -157,9 +188,10 @@ p {
     line-height: 100vh;
     text-align: center;
     font-size: 2em;
+    color: white;
 }
 
-.top-container { // Do not rename; .container conflicts with materialize-css class.
+.top-container {
     display: grid;
     height: 100vh;
     justify-items: center;

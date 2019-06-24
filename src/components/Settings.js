@@ -20,7 +20,7 @@ function Settings(props) {
         <SettingsSelect name="maxRounds" value={settings.maxRounds} options={options.maxRounds} changeSetting={(val) => setSettings('maxRounds', val)}/>
         <label>Round Duration</label>
         <SettingsSelect name="duration" value={settings.duration} options={options.duration} changeSetting={(val) => setSettings('duration', val)}/>
-        <button className="btn" onClick={ () => redirectTo('Menu') }>Back to Menu</button>
+        <button className="" onClick={ () => redirectTo('Menu') }>Back to Menu</button>
     </div>
 }
 
