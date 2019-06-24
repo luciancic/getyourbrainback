@@ -103,6 +103,7 @@ p {
         height: 100%;
         border: none;
         font-size: 1.1rem;
+        color: white;
     } 
 
     &__text {
@@ -187,6 +188,7 @@ p {
     line-height: 100vh;
     text-align: center;
     font-size: 2em;
+    color: white;
 }
 
 .top-container { // Do not rename; .container conflicts with materialize-css class.
