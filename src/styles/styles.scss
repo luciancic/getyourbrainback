@@ -61,6 +61,10 @@ p {
     background-color: #9c27b0;
 }
 
+.lighten {
+    opacity: .3;
+}
+
 .button-container {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -116,6 +120,7 @@ p {
     height: 100vh;
     justify-items: center;
     align-items: center;
+    background-color: #eceff1 ;
 
     @include large-screen {
         grid-template-rows: none;
@@ -163,7 +168,7 @@ p {
     }
 
     &__position-circle {
-        transition: background-color 200ms ease-in-out;
+        transition: opacity 150ms ease-in-out;
         height: 20vh;
         width: 20vh;
         border-radius: 100%;
