@@ -13,8 +13,8 @@ function GetReady(props) {
 
     return <Fragment>
     { 
-        readyStatus === 'ready' ? <div className='ready green white-text'>Get Ready...</div> :
-        readyStatus === 'start' ? <div className='ready green white-text'>Start!</div> :
+        readyStatus === 'ready' ? <div className='ready green'>Get Ready...</div> :
+        readyStatus === 'start' ? <div className='ready green'>Start!</div> :
         readyStatus === 'playing' ? props.children : null
     }
     </Fragment>
